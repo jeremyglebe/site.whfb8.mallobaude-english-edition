@@ -290,7 +290,7 @@ def build():
 <title>The Revolt of Mallobaude — Rules</title><meta name="source-sha256" content="{hashlib.sha256(source.encode()).hexdigest()}">
 <link rel="canonical" href="https://mallobaude.drowsy.games/rules.html">
 <link rel="stylesheet" href="styles/common.css"><link rel="stylesheet" href="styles/rules.css"><link rel="stylesheet" href="styles/print.css"><link rel="stylesheet" href="styles/rules-reader.css"></head>
-<body class="reader"><nav class="site-bar" aria-label="Site"><a href="index.html">Project home</a><a href="guide.html">Game Guide</a><a href="#rules-page-03">Contents</a><a href="editorial/glossary.html">Glossary</a><a href="editorial/decisions.html">Decisions</a></nav>
+<body class="reader"><nav class="site-bar" aria-label="Site"><a href="index.html">Project home</a><a href="battles/index.html">Battles</a><a href="guide.html">Game Guide</a><a href="#rules-page-03">Contents</a><a href="editorial/glossary.html">Glossary</a><a href="editorial/decisions.html">Decisions</a></nav>
 <main class="reader-shell" aria-label="The Revolt of Mallobaude rules for Warhammer 8th Edition">
 {sections[0]}
 {''.join(sections[1:])}</main>{print_main}</body></html>'''
