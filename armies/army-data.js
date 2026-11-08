@@ -6279,7 +6279,7 @@ window.CAMPAIGN_ARMY_DATA = {
       ],
       "notes": [
         "Available to any Bretonnian army only after the campaign.",
-        "The unit is a Level 2 Wizard that knows Vigour of Spring and Urannon's Thunderbolt."
+        "The unit is a Level 2 Wizard that knows Regrowth and Urannon's Thunderbolt."
       ],
       "source": "The Revolt of Mallobaude, p. 40",
       "sourceHref": "../rules.html#rules-page-40",

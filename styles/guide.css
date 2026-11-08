@@ -789,3 +789,184 @@
 .back-cover-branding .compatibility {
   font-style: italic;
 }
+
+/* The screen edition reflows; the original page geometry remains print-only. */
+@media screen {
+  .book {
+    display: block;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding: clamp(0.75rem, 3vw, 2rem);
+  }
+
+  .book .page {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0 0 1.5rem;
+    padding: clamp(1.25rem, 5vw, 4rem);
+    overflow: visible;
+    background-size: 760px auto;
+  }
+
+  .book .cover {
+    min-height: min(52rem, 110vw);
+    background-size: cover;
+  }
+
+  .book .cover-copy,
+  .book .cover-note {
+    position: static;
+    width: auto;
+    max-width: 35rem;
+    text-align: left;
+  }
+
+  .book .cover-copy {
+    padding-top: clamp(8rem, 35vw, 26rem);
+  }
+
+  .book .cover-note {
+    margin-top: 1rem;
+  }
+
+  .book .prose,
+  .book .compact-prose,
+  .book .throne-copy,
+  .book .oath-columns,
+  .book .chronology-grid,
+  .book .duke-roster,
+  .book .dukes-intro,
+  .book .corruption-rules,
+  .book .campaign-sidebar,
+  .book .conclusion-rules,
+  .book .unreliable-allies,
+  .book .servant-rule,
+  .book .defeated-rule,
+  .book .back-cover-copy {
+    font-size: 1.0625rem !important;
+    line-height: 1.6 !important;
+    text-align: left;
+    hyphens: none;
+  }
+
+  .book .prose p,
+  .book .timeline-entry,
+  .book .duke-entry {
+    margin-bottom: 1em;
+  }
+
+  .book .legal,
+  .book .source-note,
+  .book .translation-note,
+  .book .chronology-note,
+  .book .campaign-note,
+  .book .figure figcaption,
+  .book .oath-columns .proclamation,
+  .book .back-cover-branding p {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .book .timeline-entry b,
+  .book .unreliable-allies h3,
+  .book .conclusion-rules h3,
+  .book .servant-rule h3,
+  .book .defeated-rule h3,
+  .book .alternate-block h3,
+  .book .back-cover-copy h3 {
+    font-size: 1.0625rem;
+    line-height: 1.35;
+  }
+
+  .book .legal,
+  .book .version-note,
+  .book .unreliable-allies,
+  .book .siege-art,
+  .book .servant-rule,
+  .book .defeated-rule,
+  .book .back-cover-copy,
+  .book .back-cover-branding,
+  .book .page-number,
+  .book .editorial-flag {
+    position: static;
+    margin-top: 1.5rem;
+  }
+
+  .book .editorial-flag {
+    display: table;
+    margin: 0 0 1.5rem auto;
+  }
+
+  .book .page-number {
+    display: block;
+    font-size: 0.875rem;
+    text-align: right;
+  }
+
+  .book .flight-page .campaign-stage-grid,
+  .book .siege-page .campaign-stage-grid {
+    padding-bottom: 0;
+  }
+
+  .book .contents-grid {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .book .contents-list li {
+    grid-template-columns: minmax(0, auto) 1fr auto;
+  }
+
+  .book img {
+    max-width: 100%;
+  }
+
+  .book .gallery-wide img,
+  .book .gallery-knight img {
+    height: auto;
+  }
+
+  .book .back-cover {
+    background-size: cover;
+  }
+
+  .book .back-cover-branding {
+    padding: 1rem;
+    background: rgba(247, 242, 228, 0.95);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .book .contents-grid,
+  .book .campaign-stage-grid,
+  .book .revelation-grid,
+  .book .conclusion-grid,
+  .book .chronology-grid,
+  .book .duke-roster {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .book .oath-columns,
+  .book .corruption-rules ul {
+    column-count: 1;
+  }
+
+  .book .campaign-sidebar,
+  .book .conclusion-rules {
+    padding: 1rem;
+    border-left: 3px solid var(--gold);
+    background: rgba(168, 151, 122, 0.1);
+  }
+
+  .book .portrait-float {
+    float: none;
+    margin: 1rem auto;
+  }
+
+  .book .revelation-art img {
+    max-height: 24rem;
+  }
+}

@@ -1,0 +1,57 @@
+/* Reading view only. The reconstructed book and print layout are untouched. */
+.reader { background: #282521; }
+.reader .site-bar { flex-wrap: wrap; }
+.reader-shell { width: min(72rem, 100%); margin: 0 auto; padding: clamp(0.75rem, 3vw, 2rem); }
+.reader-intro, .reader-contents, .reader-page { margin: 0 0 1.25rem; padding: clamp(1.15rem, 4vw, 3rem); background: #f5f2e9; color: #211c18; }
+.reader-intro h1 { font-size: clamp(2rem, 6vw, 3rem); }
+.reader-intro p, .reader-page { font-size: 1.0625rem; line-height: 1.65; }
+.reader-intro p { max-width: 70ch; }
+.reader-page > p, .reader-block, .reader-page > h2, .reader-page > h3 { max-width: 72ch; margin-inline: auto; }
+.reader-page p { margin-block: 0 1em; }
+.reader-page h2 { margin-block: 1.6rem 1rem; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.2; }
+.reader-page h3 { margin-block: 1rem 0.5rem; font-size: 1.1rem; line-height: 1.3; }
+.reader-page ul { padding-left: 1.25rem; }
+.reader-page li { margin-bottom: 0.6em; }
+.reader-page .flavour { font-style: italic; }
+.reader-block + .reader-block { margin-top: 1.5rem; }
+.page-source { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; justify-content: space-between; border-bottom: 1px solid #b7a78f; padding-bottom: 0.7rem; margin-bottom: 1.5rem; font: 0.875rem/1.4 Arial, sans-serif; }
+.reader-contents ol { list-style: none; padding: 0; columns: 2; column-gap: 2rem; }
+.reader-contents li { break-inside: avoid; }
+.reader-contents a { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; line-height: 1.4; }
+.reader-contents a span { flex-shrink: 0; color: #51483f; }
+.reader :target { scroll-margin-top: 5rem; }
+.reader a:focus-visible, .diagram-scroll:focus-visible { outline: 3px solid #8b652b; outline-offset: 3px; }
+.reader table { width: 100%; border-collapse: collapse; font: inherit; }
+.reader th, .reader td { padding: 0.8rem; border-bottom: 1px solid #b7a78f; vertical-align: top; text-align: left; }
+.reader thead { background: #e6dcc6; }
+.reader tbody th { width: 3rem; }
+.reader tbody tr:nth-child(even) { background: #eee8d9; }
+.table-scroll { max-width: 100%; }
+.reader figure { margin: 1.5rem 0; }
+.reader figure img { display: block; max-width: 100%; height: auto; margin-inline: auto; }
+.reader figcaption { margin-bottom: 0.75rem; font: 0.9rem/1.5 Arial, sans-serif; }
+.diagram-scroll { max-width: 100%; overflow-x: auto; border: 1px solid #b7a78f; background: #f7f3e7; }
+.diagram-scroll svg { display: block; width: 100%; min-width: 38rem; height: auto; }
+@media (max-width: 700px) {
+  .reader-contents ol { columns: 1; }
+  .reader th, .reader td { padding: 0.65rem 0.4rem; }
+}
+@media print {
+  html, .reader { background: white; }
+  .reader-shell { width: auto; padding: 0; }
+  .site-bar, .reader-contents, .page-source a { display: none; }
+  .reader-intro, .reader-page { background: white; padding: 0; margin-bottom: 2rem; }
+  .reader-page { break-before: page; }
+  .diagram-scroll { overflow: visible; }
+  .diagram-scroll svg { min-width: 0; }
+}
+/* Wide stat lines stay tabular without forcing the surrounding prose to scroll. */
+.profile-scroll { overflow-x: auto; margin-block: 1.5rem; }
+.reader .profile-table { min-width: 42rem; font-size: 0.95rem; }
+.reader .profile-table th, .reader .profile-table td { padding: 0.6rem 0.45rem; }
+.reader .profile-table tbody th { width: auto; min-width: 8rem; }
+.profile-scroll:focus-visible { outline: 3px solid #8b652b; outline-offset: 3px; }
+/* Printed dot leaders must not set the screen document's minimum width. */
+.profile-heading .profile-leader { display: none; }
+.profile-heading .profile-cost { display: block; margin-top: 0.3em; font-size: 1.1rem; }
+@media print { .reader .profile-table { min-width: 0; } .profile-scroll { overflow: visible; } }

@@ -281,7 +281,7 @@ window.CAMPAIGN_RULE_DEFINITIONS = {
         sourceUrl: "../rules.html#rules-page-40"
       },
       "Guardians of Haven": {
-        html: "<p>The unit is a Level 2 Wizard that knows Vigour of Spring and Urannon’s Thunderbolt; other Wizards are not prevented from knowing those spells. Add +1 to its casting roll for every complete rank of at least three models after the first, to a maximum of +3. Choose one Chevalier-Moire as the caster whenever the unit casts, for line of sight and range. On a miscast, do not roll on the Miscast table; the unit instead loses 1 Wound with no armour save. If an effect targets a Wizard, the opposing player chooses which Chevalier-Moire is affected.</p>",
+        html: "<p>The unit is a Level 2 Wizard that knows Regrowth and Urannon’s Thunderbolt; other Wizards are not prevented from knowing those spells. Add +1 to its casting roll for every complete rank of at least three models after the first, to a maximum of +3. Choose one Chevalier-Moire as the caster whenever the unit casts, for line of sight and range. On a miscast, do not roll on the Miscast table; the unit instead loses 1 Wound with no armour save. If an effect targets a Wizard, the opposing player chooses which Chevalier-Moire is affected.</p>",
         sourceReference: "The Revolt of Mallobaude, p. 40",
         sourceUrl: "../rules.html#rules-page-40"
       },

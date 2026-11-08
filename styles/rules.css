@@ -206,3 +206,27 @@
     height: 297mm;
   }
 }
+
+/* Keep the corrected crypt sentence inside its original 120pt column.
+   Preserve the source baseline positions and type size in screen and print. */
+#rules-page-52 .pdf-line[style*="left:70.000pt;top:180.100pt"] > span {
+  transform: scaleX(0.98);
+  transform-origin: left top;
+}
+
+#rules-page-52 .pdf-line[style*="left:70.000pt;top:189.635pt"] > span {
+  transform: scaleX(0.91);
+  transform-origin: left top;
+}
+
+/* Reflow corrected long lines within their original print columns. */
+.rules-page .pdf-line.layout-wrap {
+  height: auto !important;
+  white-space: normal;
+}
+
+.rules-page .pdf-line.layout-wrap > span {
+  position: static;
+  white-space: normal;
+  line-height: 1.14;
+}

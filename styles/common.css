@@ -727,3 +727,28 @@ a.card:focus-visible {
     transition: none;
   }
 }
+
+/* Navigation must remain legible against the dark bar on all documents. */
+.site-bar a {
+  color: #f1d999;
+  text-underline-offset: 0.2em;
+}
+
+.site-bar a:focus-visible {
+  outline: 2px solid #f1d999;
+  outline-offset: 4px;
+}
+
+@media screen and (max-width: 900px) {
+  .site-bar {
+    position: static;
+    flex-wrap: wrap;
+    gap: 0.65rem 1rem;
+  }
+
+  .site-bar .status {
+    flex-basis: 100%;
+    margin-left: 0;
+    line-height: 1.4;
+  }
+}
