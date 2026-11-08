@@ -55,3 +55,58 @@
 .profile-heading .profile-leader { display: none; }
 .profile-heading .profile-cost { display: block; margin-top: 0.3em; font-size: 1.1rem; }
 @media print { .reader .profile-table { min-width: 0; } .profile-scroll { overflow: visible; } }
+
+/* One translated web document: original parchment, art and heraldic palette,
+   with flowing typography rather than a second, stripped reading surface. */
+.reader-shell { width: min(68rem, 100%); padding: clamp(.5rem, 2.6vw, 2rem); }
+.reader-page, .reader-contents {
+  background-color: #eee5d0;
+  background-image: url('../assets/rules/paper-texture.jpg');
+  background-size: 100% 100%;
+  border: 1px solid #bda77e;
+  box-shadow: 0 7px 28px #08060466;
+  padding: clamp(1.35rem, 5vw, 4.5rem);
+  margin-bottom: clamp(1rem, 3vw, 2.4rem);
+}
+.reader-page { font-size: clamp(1.05rem, 1.6vw, 1.15rem); line-height: 1.65; }
+.page-content { max-width: 74ch; margin-inline: auto; }
+.page-source { color: #665133; border-color: #aa8b57; font: small-caps .78rem/1.4 Georgia,serif; letter-spacing: .09em; }
+.reader-page h2, .reader-contents h2 { color: #561b20; font-weight: 500; font-variant: small-caps; letter-spacing: .035em; }
+.reader-page h2 { padding-bottom: .45em; border-bottom: 1px solid #ac956d; }
+.reader-page h3 { color: #532025; font-variant: small-caps; letter-spacing: .025em; }
+.reader figure { margin: 2rem auto; text-align: center; }
+.reader figure img { max-height: 42rem; width: auto; max-width: 100%; object-fit: contain; }
+.reader .source-illustration { padding-block: 1rem; }
+.reader table { background: #f4eddc99; }
+.reader thead { background: #bda77e66; }
+.reader tbody tr:nth-child(even) { background: #bda77e33; }
+.reader .diagram-scroll { background: #f4eddc; }
+.reader .document-cover {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start; gap: 1.5rem; padding: clamp(1.5rem,5vw,3.5rem);
+}
+.document-cover .page-source { grid-column: 1 / -1; background: #f4eedbdd; padding: .7rem 1rem; color: #352c22; border: 0; margin: 0; }
+.document-cover .page-content { background: #f4eedbee; padding: clamp(1rem,3vw,2rem); margin: 0; width: 100%; border: 1px solid #c2ac7e; }
+.reader .cover-art { margin: 0; }
+.reader .cover-art img { width: 100%; height: auto; max-height: none; }
+.document-cover h1 { color: #561b20; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; font-weight: 500; }
+.document-cover .cover-brand { font-size: 1.3rem; letter-spacing: .05em; }
+.document-cover .cover-edition { margin-top: 1.5rem; }
+.document-cover .cover-credit { margin-top: 1.5rem; font-size: .95rem; }
+.document-cover .cover-summary { border-block: 1px solid #ac956d; margin-block: 1.5rem; padding-block: .5rem; }
+.document-cover h2 { margin-top: 0; }
+.document-cover p:last-child { margin-bottom: 0; }
+.reader .print-book { display: none; }
+@media (max-width: 600px) {
+  .reader .document-cover { grid-template-columns: minmax(0, 1fr); }
+  .reader .page-source { letter-spacing: .04em; }
+  .reader .site-bar { gap: .55rem 1rem; }
+}
+@media print {
+  .reader .reader-shell { display: none !important; }
+  .reader .print-book { display: block !important; padding: 0; margin: 0; }
+  .reader .print-book .rules-page { break-after: page; box-shadow: none; }
+}
+.reader .toc-entry { margin: 0; }
+.reader .toc-entry a { display: flex; justify-content: space-between; gap: 1rem; padding: .45rem 0; text-decoration: none; border-bottom: 1px dotted #a48b62; }
+.reader .toc-entry a:hover { text-decoration: underline; }

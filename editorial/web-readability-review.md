@@ -1,3 +1,30 @@
+# Canonical illustrated web documents
+
+The earlier separate reading view was the wrong presentation model. The current
+work makes `rules.html` itself responsive, retains parchment and all source
+illustrations, and includes covers/front/back matter. There is one translated
+web document, not a choice between readable text and original-looking pages.
+The original French PDFs remain unchanged. The obsolete reader URL redirects
+to the canonical document, preserving deep links.
+
+Canonical verification: all 56 rules sections and 36 guide pages checked at
+390px and 1440px in background Chromium. No overflow/clipping was found; every
+original illustration is retained and covers show full artwork without cropping.
+All 50 rules contents links and 26 guide contents links passed click, destination
+visibility, keyboard activation and browser Back checks at both widths. All 15
+guide sidebars remain visible; on phones they follow their associated narrative.
+The Year of Woe sidebar begins roughly 1,584px below its page top.
+
+Twenty-eight local content/navigation/regression tests pass. All 56 printed rules
+pages retain identical geometry and pixel-identical renders against the published
+print layout. QA corrected cover/front/back reading regions and five Arkhan bullet
+items without changing translation wording. Evidence resides on Jeremy-PC under
+`Documents/Codex/2026-11-08/task/mallobaude-canonical-qa/output/canonical-qa`.
+Browser coverage is Chromium only, not Safari or Firefox. The historical records
+below apply only to their named snapshots, not the current presentation.
+
+## Historical QA records (superseded presentation)
+
 # Web readability review — 8 November 2026
 
 ## Scope

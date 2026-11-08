@@ -806,7 +806,10 @@
     margin: 0 0 1.5rem;
     padding: clamp(1.25rem, 5vw, 4rem);
     overflow: visible;
-    background-size: 760px auto;
+    /* Keep the source paper edge around each complete reflowed page,
+       rather than tiling its dark edge through the prose. */
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
 
   .book .cover {
@@ -969,4 +972,45 @@
   .book .revelation-art img {
     max-height: 24rem;
   }
+}
+
+/* Preserve the illustrated book on screen, not merely its text. Source artwork
+   must remain complete when a fluid page no longer has print-sized slots. */
+@media screen {
+  .book .figure img {
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .book .plate-page .figure img {
+    max-width: 48rem;
+  }
+
+  .book .revelation-art img {
+    max-width: 22rem;
+  }
+
+  .book .siege-art img {
+    width: 100%;
+  }
+
+  .book .cover,
+  .book .back-cover {
+    background-repeat: no-repeat;
+  }
+
+  .book .oath-page {
+    background-image: url("../assets/guide/page-29-image-02.jpg");
+    background-size: 100% 100%;
+  }
+}
+/* Contents are navigation, not a facsimile of printed dot leaders. */
+.contents-list li { display: block; }
+.contents-list li > a { display: grid; grid-template-columns: auto 1fr auto; gap: 2mm; color: inherit; text-decoration: none; }
+@media screen {
+  .contents-list li > a { padding-block: .45rem; }
+  .contents-list a:hover { color: var(--wine); text-decoration: underline; }
+  .contents-list a:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+  .book [id] { scroll-margin-top: 7rem; }
 }

@@ -78,14 +78,14 @@
   padding: 0;
 }
 
-#rules-page-04 .rules-text > .pdf-line,
-#rules-page-05 .rules-text > .pdf-line,
-#rules-page-06 .rules-text > .pdf-line,
-#rules-page-07 .rules-text > .pdf-line,
-#rules-page-08 .rules-text > .pdf-line,
-#rules-page-09 .rules-text > .pdf-line,
-#rules-page-10 .rules-text > .pdf-line,
-#rules-page-11 .rules-text > .pdf-line {
+:is(#rules-page-04, #print-rules-page-04) .rules-text > .pdf-line,
+:is(#rules-page-05, #print-rules-page-05) .rules-text > .pdf-line,
+:is(#rules-page-06, #print-rules-page-06) .rules-text > .pdf-line,
+:is(#rules-page-07, #print-rules-page-07) .rules-text > .pdf-line,
+:is(#rules-page-08, #print-rules-page-08) .rules-text > .pdf-line,
+:is(#rules-page-09, #print-rules-page-09) .rules-text > .pdf-line,
+:is(#rules-page-10, #print-rules-page-10) .rules-text > .pdf-line,
+:is(#rules-page-11, #print-rules-page-11) .rules-text > .pdf-line {
   display: none;
 }
 
@@ -209,12 +209,12 @@
 
 /* Keep the corrected crypt sentence inside its original 120pt column.
    Preserve the source baseline positions and type size in screen and print. */
-#rules-page-52 .pdf-line[style*="left:70.000pt;top:180.100pt"] > span {
+:is(#rules-page-52, #print-rules-page-52) .pdf-line[style*="left:70.000pt;top:180.100pt"] > span {
   transform: scaleX(0.98);
   transform-origin: left top;
 }
 
-#rules-page-52 .pdf-line[style*="left:70.000pt;top:189.635pt"] > span {
+:is(#rules-page-52, #print-rules-page-52) .pdf-line[style*="left:70.000pt;top:189.635pt"] > span {
   transform: scaleX(0.91);
   transform-origin: left top;
 }

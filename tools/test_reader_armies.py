@@ -7,7 +7,7 @@ from test_rules_reader import words, reading_text
 class ArmyReaderTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        root=DOM((ROOT/'rules.html').read_text(encoding='utf-8')).root
+        root=DOM((ROOT/'tools/source/rules-layout.html.in').read_text(encoding='utf-8')).root
         cls.pages={int(p.attrs['data-source-page']):p for p in root.find(lambda n:n.has('rules-page'))}
     def rendered(self,number):
         return DOM(render_page(number,self.pages[number])).root

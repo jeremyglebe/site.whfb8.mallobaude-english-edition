@@ -3,6 +3,7 @@
 Coordinates identify source regions only. Text is always read from rules.html.
 """
 from html import escape
+import re
 
 TITLES = {19:'Mallobaude the Black Knight',20:'Mallobaude the Vampire Duke',21:'The Rebels of Bretonnia',22:'The Mousillon Army',23:'Arkhan the Black',24:'Black Grail Knights',42:'The Kings of Bretonnia',43:'Gilles le Breton',44:'Mallobaude the Vampire King'}
 
@@ -64,9 +65,18 @@ def render_page(number,page):
     elif number==22:
         region(0,100);columns(100,580);region(580,800);images()
     elif number==23:
-        # The illustration occupies the left half. All text below the title
-        # belongs to the right-hand narrative and rules panel, including bullets.
-        region(0,100);region(100,800);images()
+        # The old bullet positions were not moved when the translated lines
+        # rewrapped. Rebuild the five original items from their sentence starts.
+        region(0,100);region(100,400)
+        body = [n for n in lines if 400 <= style(n,'top') < 800]
+        used.extend(body)
+        from build_rules_reader import rows
+        text = ' '.join(' '.join(n.text().split()) for _, parts in rows(body)
+                        for n in parts if n.text().strip() != '•')
+        items = re.split(r' (?=Replace his Undead rule|Ignore the Liche High Priest|Arkhan does not count|He has the Master of the Dead)', text)
+        assert len(items) == 5, (number, 'Expected five Arkhan rules')
+        out.append('<ul>' + ''.join('<li>'+escape(item)+'</li>' for item in items) + '</ul>')
+        images()
     elif number==24:
         region(0,100);columns(100,760,290);images();region(760,800)
     elif number==42:

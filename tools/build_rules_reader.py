@@ -161,6 +161,7 @@ if __name__ == "__main__":
 import reader_dukes, reader_profiles, reader_armies
 RENDERERS = {n: module.render_page for module in (reader_dukes, reader_profiles, reader_armies) for n in module.TITLES}
 TITLES.update({n: title for module in (reader_dukes, reader_profiles, reader_armies) for n, title in module.TITLES.items()})
+TITLES.update({1:'The Revolt of Mallobaude',2:'Prelude',3:'Contents',56:'About this supplement'})
 TITLES = dict(sorted(TITLES.items()))
 
 # Verified sentence continuations split by source columns or PDF line spacing.
@@ -186,8 +187,38 @@ def join_reviewed_paragraphs(content, number):
     return content
 
 
+def front_matter(number, page, lines):
+    """Read the cover panels and contents columns as discrete source regions."""
+    def region(x0=0, x1=600, y0=0, y1=900):
+        return [n for n in lines if x0 <= style(n, 'left') < x1 and y0 <= style(n, 'top') < y1]
+    def text(nodes):
+        return escape(' '.join(' '.join(n.text().split()) for _, parts in rows(nodes) for n in parts))
+    if number == 1:
+        return ('<p class="cover-brand">' + text(region(y1=60)) + '</p>'
+                '<p>' + text(region(y0=60, y1=80)) + '</p>'
+                '<h1>' + text(region(y0=80, y1=145)) + '</h1>'
+                '<div class="cover-edition">' + prose(region(x0=350, y0=700)) + '</div>'
+                '<div class="cover-credit">' + prose(region(x1=350, y0=700)) + '</div>')
+    if number == 2:
+        art = next(page.find(lambda n: n.tag == 'img' and not n.has('page-background')))
+        return (prose(region(y1=500)) + '<figure class="source-illustration"><img src="'
+                + escape(art.attrs['src']) + '" alt="Illustration from source page 2"></figure>'
+                + prose(region(y0=500)))
+    if number == 3:
+        return (prose(region(y1=100)) + prose(region(x1=300, y0=100, y1=730))
+                + prose(region(x0=300, y0=100, y1=730)) + prose(region(y0=730)))
+    assert number == 56
+    return (prose(region(x1=360, y1=730))
+            + '<aside class="cover-summary"><h3>' + text(region(x0=360, y1=640))
+            + '</h3><ul><li>' + text(region(x0=360, y0=640, y1=670)).lstrip('• ')
+            + '</li><li>' + text(region(x0=360, y0=670, y1=730)).lstrip('• ')
+            + '</li></ul></aside>' + prose(region(y0=730, y1=775))
+            + prose(region(y0=775, y1=790)) + prose(region(y0=790, y1=810))
+            + prose(region(y0=810)))
+
+
 def build():
-    source = (ROOT/'rules.html').read_text(encoding='utf-8')
+    source = (ROOT/'tools/source/rules-layout.html.in').read_text(encoding='utf-8')
     root = DOM(source).root
     pages = {int(n.attrs['data-source-page']): n for n in root.find(lambda n: n.has('rules-page'))}
     sections = []
@@ -196,7 +227,10 @@ def build():
         text_layer = next(page.find(lambda n:n.has('rules-text')))
         blocks = [n for n in text_layer.children if isinstance(n,Node)]
         content = ''
-        if number in RENDERERS:
+        if number in (1,2,3,56):
+            lines = [n for n in blocks if n.has('pdf-line')]
+            content = front_matter(number, page, lines)
+        elif number in RENDERERS:
             content = RENDERERS[number](number, page)
         elif number <= 11:
             # These pages explicitly hide the older PDF-line layer in rules.css.
@@ -233,28 +267,45 @@ def build():
                 for image in page.find(lambda n:n.tag=='img' and not n.has('page-background')):
                     content += f'<figure><img src="{escape(image.attrs["src"])}" alt="Illustration from source page {number}"></figure>'
             assert len(consumed)==len(lines) and len({id(n) for n in consumed})==len(lines), f'Unassigned or duplicated text on page {number}'
+        if number == 3:
+            content = re.sub(r'<p>([^<]+) (\d{1,2})</p>', lambda m: f'<p class="toc-entry"><a href="#rules-page-{int(m[2]):02}">{m[1]} <span>{m[2]}</span></a></p>' if 1 <= int(m[2]) <= 56 else m[0], content)
         content = join_reviewed_paragraphs(content, number)
-        sections.append(f'<section class="reader-page" id="rules-page-{number:02}" data-source-page="{number}" aria-label="{escape(title)}"><header class="page-source"><span>Source page {number}</span><a href="rules.html#rules-page-{number:02}">Original page layout</a></header>{content}</section>')
+        # Every original illustration remains in the translated web document.
+        for art in page.find(lambda n:n.tag=='img' and not n.has('page-background')):
+            src = art.attrs['src']
+            if src not in content and number not in (1,56):
+                content += f'<figure class="source-illustration"><img src="{escape(src)}" alt="Illustration from source page {number}" loading="lazy"></figure>'
+        cover = ' document-cover' if number in (1,56) else ''
+        cover_art = next(page.find(lambda n:n.tag=='img' and not n.has('page-background')), None) if cover else None
+        illustration = f'<figure class="cover-art"><img src="{escape(cover_art.attrs["src"])}" alt="Illustration from source page {number}"></figure>' if cover_art else ''
+        sections.append(f'<section class="reader-page{cover}" id="rules-page-{number:02}" data-source-page="{number}" aria-label="{escape(title)}"><header class="page-source"><span>{escape(title)}</span><span>{number}</span></header>{illustration}<div class="page-content">{content}</div></section>')
     links = ''.join(f'<li><a href="#rules-page-{n:02}">{escape(title)} <span>p. {n}</span></a></li>' for n,title in TITLES.items())
+    # Preserve the established print typesetting inside the same document.
+    # Screen readers and screen layouts see only the responsive translation.
+    print_main = re.search(r'<main.*?</main>', source, re.S).group(0)
+    print_main = print_main.replace('class="book rules-book"', 'class="book rules-book print-book"')
+    print_main = re.sub(r'id="rules-page-', 'id="print-rules-page-', print_main)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mallobaude — Rules reading view</title><meta name="source-sha256" content="{hashlib.sha256(source.encode()).hexdigest()}">
-<link rel="stylesheet" href="styles/common.css"><link rel="stylesheet" href="styles/rules-reader.css"></head>
-<body class="reader"><nav class="site-bar" aria-label="Site"><a href="index.html">Project home</a><a href="guide.html">Game Guide</a><a href="rules.html">Complete rules book</a><a href="#contents">Contents</a></nav>
-<main class="reader-shell"><header class="reader-intro"><p class="kicker">The Revolt of Mallobaude</p><h1>Rules reading view</h1><p>Reflowing campaign rules and scenarios, generated from the current English translation. This reading view covers the book’s body text on pages 4–55, including character profiles, army lists, campaign rules and scenarios. Covers and front/back matter remain in the <a href="rules.html">complete rules book</a>.</p><p>For the original page design or printing, use the complete rules book. Deployment diagrams retain their spatial layout.</p></header>
-<nav id="contents" class="reader-contents" aria-label="Reading view contents"><h2>Contents</h2><ol>{links}</ol></nav>
-{''.join(sections)}</main></body></html>'''
+<title>The Revolt of Mallobaude — Rules</title><meta name="source-sha256" content="{hashlib.sha256(source.encode()).hexdigest()}">
+<link rel="canonical" href="https://mallobaude.drowsy.games/rules.html">
+<link rel="stylesheet" href="styles/common.css"><link rel="stylesheet" href="styles/rules.css"><link rel="stylesheet" href="styles/print.css"><link rel="stylesheet" href="styles/rules-reader.css"></head>
+<body class="reader"><nav class="site-bar" aria-label="Site"><a href="index.html">Project home</a><a href="guide.html">Game Guide</a><a href="#rules-page-03">Contents</a><a href="editorial/glossary.html">Glossary</a><a href="editorial/decisions.html">Decisions</a></nav>
+<main class="reader-shell" aria-label="The Revolt of Mallobaude rules for Warhammer 8th Edition">
+{sections[0]}
+{''.join(sections[1:])}</main>{print_main}</body></html>'''
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--check',action='store_true')
     args = parser.parse_args()
     result = build()
-    destination = ROOT/'rules-reader.html'
+    destination = ROOT/'rules.html'
     if args.check:
         if not destination.exists() or destination.read_text(encoding='utf-8')!=result:
             raise SystemExit('Reading view is stale: run python tools/build_rules_reader.py')
         print('Reading view matches rules.html; all curated text regions assigned once.')
     else:
         destination.write_text(result, encoding='utf-8', newline='\n')
+        (ROOT/'rules-reader.html').write_text('''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="0;url=rules.html"><link rel="canonical" href="https://mallobaude.drowsy.games/rules.html"><title>Mallobaude Rules</title></head><body><p>The translated rules are now in <a href="rules.html">one illustrated, responsive document</a>.</p><script>location.replace('rules.html'+location.search+location.hash);</script></body></html>''', encoding='utf-8')
         print(f'Built {destination.name}: {len(TITLES)} source pages')

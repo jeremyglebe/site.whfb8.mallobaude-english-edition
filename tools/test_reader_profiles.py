@@ -6,7 +6,7 @@ from test_rules_reader import words,reading_text
 
 class ProfileReaderTests(unittest.TestCase):
     def test_source_word_parity(self):
-        root=DOM((ROOT/'rules.html').read_text(encoding='utf-8')).root
+        root=DOM((ROOT/'tools/source/rules-layout.html.in').read_text(encoding='utf-8')).root
         for number in TITLES:
             with self.subTest(page=number):
                 page=next(root.find(lambda n:n.attrs.get('id')==f'rules-page-{number:02}'))

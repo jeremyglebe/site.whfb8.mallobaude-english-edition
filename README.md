@@ -12,7 +12,7 @@ The repository contains two static, browser-readable books and a campaign army r
 - `downloads/WHFB-End-Times-8.5.pdf` - preserved complete End Times 8.5 fan supplement
 - `other-end-times-content.html` - a holding page for related End Times material that has not yet moved to its own site
 
-Open `index.html` locally or visit the [GitHub Pages site](https://jeremyglebe.com/site.whfb8.mallobaude-english-edition/).
+Open `index.html` locally or visit the [GitHub Pages site](https://mallobaude.drowsy.games/).
 
 The separate [Lore of Undeath Summons Helper](https://jeremyglebe.com/site.whfb8.undeath-summons-helper/) lives in its own repository. It is linked from the holding page alongside the local End Times 8.5 PDF and spells reference.
 
@@ -20,15 +20,17 @@ Campaign-army rule disclosures combine the translated campaign rules with locall
 
 This is an unofficial, non-commercial fan project. It is not affiliated with or endorsed by Games Workshop. Warhammer and associated names, characters, and imagery remain the property of their respective owners.
 
-## Reflowing rules chapters
+## Translated web documents
 
-`rules-reader.html` is a generated, mobile-friendly reading view for the campaign
-rules, characters, profiles, army lists and scenarios (body pages 4–55).
-The complete reconstructed book remains authoritative, with covers/front and back
-matter and the original print layout. Wide stat tables and deployment diagrams
-scroll independently on narrow screens while prose reflows.
+`guide.html` and `rules.html` are the canonical translated documents. Both are
+responsive and retain their original parchment, illustrations and visual identity.
+The original French PDFs remain available. `rules-reader.html` is only a legacy
+redirect, not a separate version. Wide tables and deployment diagrams scroll
+independently where their spatial relationships must be retained.
 
-After editing `rules.html`, run:
+Rules translation/build input is `tools/source/rules-layout.html.in`. Its curated
+text regions are reflowed by `tools/reader_*.py`; the same input also preserves
+print typesetting in the canonical document. After editing the input, run:
 
 ```sh
 python tools/build_rules_reader.py
@@ -36,9 +38,7 @@ python tools/build_rules_reader.py --check
 python -m unittest discover -s tools -p 'test*reader*.py'
 ```
 
-The builder uses Python's standard library. It reuses existing semantic blocks
-and explicitly curated page regions in `tools/reader_*.py`, rather than guessing
-reading order across the entire book. It preserves the civil-war tables as tables and
-the deployment diagrams as spatial SVGs. Add new pages only after reviewing their
-reading order, tables and diagrams against the original layout. Do not edit the
-generated reader directly or use a generic CSS flattening of positioned text.
+Do not edit the generated `rules.html` directly. Verify source-word parity,
+reading order, artwork, tables and print output after changes. Translation must
+follow the French source; source errors and proposed corrections belong in the
+editorial ledger, not silent alterations to the translated rules.

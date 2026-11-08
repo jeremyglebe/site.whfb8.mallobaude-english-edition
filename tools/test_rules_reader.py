@@ -15,18 +15,20 @@ def words(text):
 class ReaderTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.source = DOM((ROOT/'rules.html').read_text(encoding='utf-8')).root
+        cls.source = DOM((ROOT/'tools/source/rules-layout.html.in').read_text(encoding='utf-8')).root
         cls.result = DOM(build()).root
 
     def test_generated_file_is_current(self):
-        self.assertEqual((ROOT/'rules-reader.html').read_text(encoding='utf-8'), build())
+        self.assertEqual((ROOT/'rules.html').read_text(encoding='utf-8'), build())
 
     def test_every_enabled_page_preserves_all_source_words(self):
         for number in TITLES:
             with self.subTest(page=number):
                 original = next(self.source.find(lambda n:n.attrs.get('id')==f'rules-page-{number:02}'))
                 text_layer = next(original.find(lambda n:n.has('rules-text')))
-                if number<=11:
+                if number in (1,2,3,56):
+                    nodes=[n for n in text_layer.children if hasattr(n,"has") and n.has("pdf-line")]
+                elif number<=11:
                     nodes=[n for n in text_layer.children if hasattr(n,'has') and n.has('rules-semantic') and not n.has('editorial-page-number')]
                 else:
                     nodes=[n for n in text_layer.children if hasattr(n,'has') and ((n.has('pdf-line') and style(n,'top')<800) or (n.has('rules-semantic') and not n.has('editorial-page-number')))]
@@ -43,6 +45,20 @@ class ReaderTests(unittest.TestCase):
             href=a.attrs.get('href','')
             if href.startswith('#'):
                 self.assertIn(href[1:],ids)
+
+    def test_canonical_document_retains_every_illustration(self):
+        for number in TITLES:
+            source=next(self.source.find(lambda n:n.attrs.get('id')==f'rules-page-{number:02}'))
+            result=next(self.result.find(lambda n:n.attrs.get('id')==f'rules-page-{number:02}'))
+            html=result.html()
+            for image in source.find(lambda n:n.tag=='img' and not n.has('page-background')):
+                self.assertIn(image.attrs['src'],html,(number,image.attrs['src']))
+
+    def test_no_separate_reader_navigation(self):
+        for link in self.result.find(lambda n:n.tag=='a'):
+            self.assertNotIn('rules-reader.html',link.attrs.get('href',''))
+        redirect=(ROOT/'rules-reader.html').read_text()
+        self.assertIn("location.replace('rules.html'+location.search+location.hash)",redirect)
 
     def test_caption_fragments_follow_horizontal_reading_order(self):
         page=next(self.result.find(lambda n:n.attrs.get('id')=='rules-page-39'))

@@ -8,7 +8,7 @@ from reader_dukes import render_page, TITLES
 class DukeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.root = DOM((ROOT/'rules.html').read_text(encoding='utf-8')).root
+        cls.root = DOM((ROOT/'tools/source/rules-layout.html.in').read_text(encoding='utf-8')).root
 
     def test_exact_source_words_and_unique_consumption(self):
         for number in TITLES:
