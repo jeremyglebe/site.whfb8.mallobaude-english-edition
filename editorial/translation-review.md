@@ -82,3 +82,8 @@ Regrowth is verified by matching V8 spell5, casting12+/15+, ranges24/48 and D3+1
 
 
 Virtue of Empathy subsequently verified and applied: https://whfb.lexicanum.com/wiki/Martrud cites Bretonnia6e p59; https://bibliotheque-imperiale.com/index.php/Les_Vertus_Chevaleresques identifies the same Martrud virtue as Vertu de Sollicitude. This resolves the immediately preceding terminology uncertainty. Identified correction queue is now implemented. Visual rendering and broader consistency of pre-existing army-reference mechanics remain outside completed verification.
+
+
+## Crown wording clarification (Jeremy's request)
+
+Rules p43 now states: “A unit with line of sight to the King automatically passes any Panic tests it is required to take.” This makes the existing Panic-only protection explicit without inventing a named special rule. The separate 18-inch Leadership benefit remains unchanged. Recorded as ED-026; no broader Immune to Psychology benefit is introduced.
