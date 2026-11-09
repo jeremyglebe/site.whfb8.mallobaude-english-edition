@@ -1,5 +1,20 @@
 window.CAMPAIGN_RULE_DEFINITIONS = {
   definitions: {
+    "Rebel Sorcery": {
+        "html": "<p>Use the Lore of Shadow, Fire, Death, or Beasts. Gain one free power die when casting a spell. When rolling on the Miscast table, roll one extra die and keep the two lowest.</p>",
+        "sourceReference": "The Revolt of Mallobaude, p. 21",
+        "sourceUrl": "../rules.html#rules-page-21"
+    },
+    "Oath of the Black Grail": {
+        "html": "<p>This vow replaces the Grail Vow and grants a 6+ ward save and Fear.</p>",
+        "sourceReference": "The Revolt of Mallobaude, p. 18",
+        "sourceUrl": "../rules.html#rules-page-18"
+    },
+    "Blood Dragon Vampire": {
+        "html": "<p>Mallobaude has the Red Fury and Master Strike vampiric powers.</p>",
+        "sourceReference": "The Revolt of Mallobaude, p. 20",
+        "sourceUrl": "../rules.html#rules-page-20"
+    },
     "Sworn Enemy of the Lady": {
       html: "<p>The model has Hatred (Servants of the Lady). Servants of the Lady are Prophetesses—including the Fay Enchantress—and Damsels, knights with the Grail Vow, and Grail Pilgrims.</p>",
       sourceReference: "The Revolt of Mallobaude, p. 18",
@@ -31,7 +46,7 @@ window.CAMPAIGN_RULE_DEFINITIONS = {
       sourceUrl: "../rules.html#rules-page-44"
     },
     "Curse of the Lady of the Lake": {
-      html: "<p>Whenever a Black Grail Knight passes a ward save, roll a D6. The model is slain on a 6+, or on a 5+ if the saved attack was Strength 5 or higher. Black Grail Knights take all Leadership tests—including Stupidity tests—on 3D6, discarding the lowest die.</p>",
+      html: "<p>Whenever a Black Grail Knight passes a save, roll a D6. The model is slain on a 6+, or on a 5+ if the saved attack was Strength 5 or higher. Black Grail Knights take all Leadership tests—including Stupidity tests—on 3D6, discarding the lowest die.</p><p>The French does not specify the type of save. Agree an interpretation before play; see <a href=\"../editorial/decisions.html#ed-024\">ED-024</a>.</p>",
       sourceReference: "The Revolt of Mallobaude, p. 24",
       sourceUrl: "../rules.html#rules-page-24"
     },

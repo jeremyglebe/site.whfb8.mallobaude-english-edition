@@ -182,7 +182,7 @@
               ${renderOptions(entry.options)}
             </section>
           </div>
-          <p class="unit-source"><strong>Reference:</strong> ${escapeHtml(entry.source || "The Revolt of Mallobaude")}.</p>
+          <p class="unit-source"><strong>Reference:</strong> ${entry.sourceHref ? `<a href="${escapeHtml(entry.sourceHref)}">${escapeHtml(entry.source || "The Revolt of Mallobaude")}</a>` : escapeHtml(entry.source || "The Revolt of Mallobaude")}.</p>
         </div>
       </details>`;
   }

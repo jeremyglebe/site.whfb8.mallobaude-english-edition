@@ -65,7 +65,7 @@ window.CAMPAIGN_ARMY_DATA = {
               "id": "bretonnian-lord"
             },
             {
-              "id": "wizard-lord"
+              "id": "rebel-wizard-lord"
             }
           ]
         },
@@ -76,7 +76,7 @@ window.CAMPAIGN_ARMY_DATA = {
               "id": "paladin"
             },
             {
-              "id": "wizard"
+              "id": "rebel-wizard"
             }
           ]
         },
@@ -121,8 +121,7 @@ window.CAMPAIGN_ARMY_DATA = {
           "name": "Rare Units",
           "entries": [
             {
-              "id": "black-grail-knights",
-              "note": "Before the revelation, use the mortal Black Grail Vow form described on pages 18 and 21."
+              "id": "mortal-black-grail-knights"
             },
             {
               "id": "trebuchet"
@@ -204,7 +203,7 @@ window.CAMPAIGN_ARMY_DATA = {
             },
             {
               "id": "vampire-lord",
-              "note": "Coven Throne, Abyssal Terror, and Zombie Dragon mounts are unavailable."
+              "note": "Only after the final victory of Mallobaude (The Vampire King). Coven Throne, Abyssal Terror, and Zombie Dragon mounts are unavailable."
             }
           ]
         },
@@ -5506,14 +5505,44 @@ window.CAMPAIGN_ARMY_DATA = {
       "name": "Mallobaude the Black Knight",
       "points": "260 points",
       "unitSize": "1",
-      "troopType": "Not specified",
-      "profiles": [],
+      "troopType": "Cavalry (special character)",
+      "profiles": [
+        {
+          "name": "Mallobaude the Black Knight",
+          "stats": {
+            "M": "4",
+            "WS": "6",
+            "BS": "5",
+            "S": "4",
+            "T": "4",
+            "W": "3",
+            "I": "6",
+            "A": "4",
+            "Ld": "9"
+          }
+        },
+        {
+          "name": "Rage",
+          "stats": {
+            "M": "8",
+            "WS": "3",
+            "BS": "0",
+            "S": "3",
+            "T": "3",
+            "W": "1",
+            "I": "3",
+            "A": "1",
+            "Ld": "5"
+          }
+        }
+      ],
       "equipment": [
         "Lance",
         "Heavy armour",
         "Maldred's Black Blade",
         "Cursed Shield of Mousillon",
-        "Malfleur's Chalice"
+        "Malfleur's Chalice",
+        "Barding"
       ],
       "specialRules": [
         "Sworn Enemy of the Lady",
@@ -5521,7 +5550,9 @@ window.CAMPAIGN_ARMY_DATA = {
         "Sense of Honour"
       ],
       "options": [],
-      "notes": [],
+      "notes": [
+        "Rage is a Bretonnian warhorse and ignores the usual Movement penalty for barding."
+      ],
       "source": "The Revolt of Mallobaude, p. 19",
       "sourceHref": "../rules.html#rules-page-19",
       "status": "campaign"
@@ -5530,8 +5561,37 @@ window.CAMPAIGN_ARMY_DATA = {
       "name": "Mallobaude the Serpent, Vampire Duke",
       "points": "440 points",
       "unitSize": "1",
-      "troopType": "Not specified",
-      "profiles": [],
+      "troopType": "Cavalry (special character)",
+      "profiles": [
+        {
+          "name": "Mallobaude the Vampire Duke",
+          "stats": {
+            "M": "6",
+            "WS": "9",
+            "BS": "5",
+            "S": "5",
+            "T": "5",
+            "W": "3",
+            "I": "7",
+            "A": "5",
+            "Ld": "10"
+          }
+        },
+        {
+          "name": "Rage",
+          "stats": {
+            "M": "8",
+            "WS": "3",
+            "BS": "0",
+            "S": "4",
+            "T": "4",
+            "W": "1",
+            "I": "2",
+            "A": "1",
+            "Ld": "3"
+          }
+        }
+      ],
       "equipment": [
         "Lance",
         "Heavy armour",
@@ -5625,7 +5685,7 @@ window.CAMPAIGN_ARMY_DATA = {
       "name": "Arkhan the Black",
       "points": "360 points",
       "unitSize": "1",
-      "troopType": "Infantry (Special Character, Liche High Priest & Tomb King)",
+      "troopType": "Infantry (Special Character, Master Necromancer)",
       "profiles": [
         {
           "name": "Arkhan the Black",
@@ -5643,19 +5703,23 @@ window.CAMPAIGN_ARMY_DATA = {
         }
       ],
       "equipment": [
-        "Light Armour"
+        "Light Armour",
+        "The Tomb Blade of Arkhan",
+        "The Liber Mortis",
+        "Staff of Nagash"
       ],
       "specialRules": [
-        "The Hierophant",
-        "Fly",
         "Flammable",
-        "Nehekharan Undead",
-        "The Curse"
+        "The Curse",
+        "Undead",
+        "Master of the Dead"
       ],
       "options": [],
       "notes": [
-        "Use the Tomb Kings profile, without the Skeleton Chariot.",
-        "Replace the Nehekharan Undead rule with the Vampire Counts Undead rule; Arkhan is neither Hierophant nor General."
+        "Use the Tomb Kings Arkhan profile, without the Skeleton Chariot.",
+        "Replace Nehekharan Undead with the Vampire Counts Undead rule. Ignore Liche High Priest and Tomb King unit types: Arkhan counts as a Master Necromancer, not a Hierophant.",
+        "May use the Lore of the Vampires or the Lore of Undeath instead of the Lore of Death. He receives Master of the Dead for free.",
+        "Retains his Tomb Kings magic items. The Liber Mortis raises his Wizard level to 5 while he has it; consult the Tomb Kings entry for the complete item rules. This campaign version is on foot: the chariot and its Fly upgrade are unavailable."
       ],
       "source": "The Revolt of Mallobaude, p. 23",
       "sourceHref": "../rules.html#rules-page-23",
@@ -5890,20 +5954,6 @@ window.CAMPAIGN_ARMY_DATA = {
       "troopType": "Not specified",
       "profiles": [
         {
-          "name": "Tree Kin",
-          "stats": {
-            "M": "5",
-            "WS": "4",
-            "BS": "4",
-            "S": "4",
-            "T": "5",
-            "W": "3",
-            "I": "3",
-            "A": "3",
-            "Ld": "8"
-          }
-        },
-        {
           "name": "Tree Kin Elder",
           "stats": {
             "M": "5",
@@ -5923,14 +5973,13 @@ window.CAMPAIGN_ARMY_DATA = {
         "Fear",
         "Flammable",
         "Forest Spirit",
-        "Scaly Skin (4+)",
         "Scaly Skin (3+)",
         "Acts as a character"
       ],
       "options": [
         {
           "group": "Weapons",
-          "name": "Heavy weapon",
+          "name": "Great weapon",
           "cost": "+6 pts"
         },
         {
@@ -5949,7 +5998,10 @@ window.CAMPAIGN_ARMY_DATA = {
           "cost": "+6 pts"
         }
       ],
-      "notes": [],
+      "notes": [
+        "Uses the Treekin Elder profile and cost as a character; its Scaly Skin improves to 3+ for free.",
+        "Choose at most one weapon: great weapon, scythe (halberd), or longbow. Quiverlings cost a further +6 points."
+      ],
       "source": "The Revolt of Mallobaude, p. 27",
       "sourceHref": "../rules.html#rules-page-27",
       "status": "campaign"
@@ -6392,7 +6444,6 @@ window.CAMPAIGN_ARMY_DATA = {
         "Beaquis the Hippogryph",
         "The Puissant Virtue",
         "Beloved Son of Bretonnia",
-        "The Army of the King",
         "The Lady's Champion"
       ],
       "options": [],
@@ -6452,14 +6503,14 @@ window.CAMPAIGN_ARMY_DATA = {
         "Beaquis the Hippogryph",
         "The Puissant Virtue",
         "Beloved Son of Bretonnia",
-        "The Army of the King",
         "The Lady's Champion",
         "Hatred (Undead)"
       ],
       "options": [],
       "notes": [
         "Outcome-dependent post-campaign Lord after Mallobaude's victory.",
-        "He cannot join a Bretonnian or Crusade army; he instead counts as an ally for Order armies."
+        "He cannot join a Bretonnian or Crusade army; he instead counts as an ally for Order armies.",
+        "Uses Louen Leoncoeur's rules without the Crown of Bretonnia or access to the King's Army list; the printed -25-point adjustment is included."
       ],
       "source": "The Revolt of Mallobaude, p. 42",
       "sourceHref": "../rules.html#rules-page-42",
@@ -6523,6 +6574,213 @@ window.CAMPAIGN_ARMY_DATA = {
       "source": "The Revolt of Mallobaude, p. 42",
       "sourceHref": "../rules.html#rules-page-42",
       "status": "campaign"
+    },
+    "mortal-black-grail-knights": {
+      "name": "Black Grail Knights (mortal rebels)",
+      "points": "38 points per model",
+      "unitSize": "3–12",
+      "troopType": "Not specified",
+      "profiles": [
+        {
+          "name": "Grail Knight",
+          "stats": {
+            "M": "4",
+            "WS": "5",
+            "BS": "3",
+            "S": "4",
+            "T": "3",
+            "W": "1",
+            "I": "5",
+            "A": "2",
+            "Ld": "8"
+          }
+        }
+      ],
+      "equipment": [
+        "Hand Weapon",
+        "Lance (mounted models only)",
+        "Heavy Armour",
+        "Shield"
+      ],
+      "specialRules": [
+        "Living Saints",
+        "Oath of the Black Grail"
+      ],
+      "options": [
+        {
+          "group": "Command",
+          "name": "Musician",
+          "cost": "+10 pts"
+        },
+        {
+          "group": "Command",
+          "name": "Standard Bearer",
+          "cost": "+20 pts"
+        }
+      ],
+      "source": "The Revolt of Mallobaude, pp. 18, 21",
+      "status": "campaign",
+      "notes": [
+        "Use Grail Knights with the Oath of the Black Grail instead of the Grail Vow. This is the mortal Rebel entry, not the later Blood Knights upgrade on page 24.",
+        "Partial Grail Knight reference: use the Bretonnia army book for the complete mounted profile, barding, command and magic-banner options. The card does not replace that entry."
+      ],
+      "sourceHref": "../rules.html#rules-page-21"
+    },
+    "rebel-wizard-lord": {
+      "name": "Master Sorcerer",
+      "points": "165 points",
+      "unitSize": "1",
+      "troopType": "Infantry",
+      "profiles": [
+        {
+          "name": "Battle Wizard Lord",
+          "stats": {
+            "M": "4",
+            "WS": "3",
+            "BS": "3",
+            "S": "3",
+            "T": "4",
+            "W": "3",
+            "I": "3",
+            "A": "1",
+            "Ld": "8"
+          }
+        }
+      ],
+      "equipment": [
+        "Hand Weapon"
+      ],
+      "specialRules": [
+        "Rebel Sorcery"
+      ],
+      "options": [
+        {
+          "group": "Options",
+          "name": "Magic Items",
+          "cost": "Pay item costs",
+          "description": "Use the magic-item allowance in the Empire army book; items are not free. The allowance has not yet been verified for this reference."
+        },
+        {
+          "group": "Wizard Level",
+          "name": "Wizard Level 3",
+          "cost": "free"
+        },
+        {
+          "group": "Wizard Level",
+          "name": "Wizard Level 4",
+          "cost": "+35 pts"
+        },
+        {
+          "group": "Mount",
+          "name": "Warhorse",
+          "cost": "+18 pts"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Fire",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Beasts",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Shadow",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Death",
+          "cost": "free"
+        }
+      ],
+      "source": "The Revolt of Mallobaude, p. 21; Warhammer Armies: The Empire, p. 33",
+      "status": "campaign",
+      "notes": [
+        "Use the corresponding Empire Wizard profile and cost. No mount except a warhorse is permitted.",
+        "Partial army-book reference: consult the Empire book for the full magic-item allowance, warhorse profile and optional barding. Only the campaign overrides have been source-checked here."
+      ],
+      "sourceHref": "../rules.html#rules-page-21"
+    },
+    "rebel-wizard": {
+      "name": "Sorcerer",
+      "points": "65 points",
+      "unitSize": "1",
+      "troopType": "Infantry",
+      "profiles": [
+        {
+          "name": "Battle Wizard",
+          "stats": {
+            "M": "4",
+            "WS": "3",
+            "BS": "3",
+            "S": "3",
+            "T": "3",
+            "W": "2",
+            "I": "3",
+            "A": "1",
+            "Ld": "7"
+          }
+        }
+      ],
+      "equipment": [
+        "Hand Weapon"
+      ],
+      "specialRules": [
+        "Rebel Sorcery"
+      ],
+      "options": [
+        {
+          "group": "Options",
+          "name": "Magic Items",
+          "cost": "Pay item costs",
+          "description": "Use the magic-item allowance in the Empire army book; items are not free. The allowance has not yet been verified for this reference."
+        },
+        {
+          "group": "Wizard Level",
+          "name": "Wizard Level 1",
+          "cost": "free"
+        },
+        {
+          "group": "Wizard Level",
+          "name": "Wizard Level 2",
+          "cost": "+35 pts"
+        },
+        {
+          "group": "Mount",
+          "name": "Warhorse",
+          "cost": "+12 pts"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Fire",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Beasts",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Shadow",
+          "cost": "free"
+        },
+        {
+          "group": "Lore",
+          "name": "Lore of Death",
+          "cost": "free"
+        }
+      ],
+      "source": "The Revolt of Mallobaude, p. 21; Warhammer Armies: The Empire, p. 33",
+      "status": "campaign",
+      "notes": [
+        "Use the corresponding Empire Wizard profile and cost. No mount except a warhorse is permitted.",
+        "Partial army-book reference: consult the Empire book for the full magic-item allowance, warhorse profile and optional barding. Only the campaign overrides have been source-checked here."
+      ],
+      "sourceHref": "../rules.html#rules-page-21"
     }
   },
   "postCampaignLeaders": [
