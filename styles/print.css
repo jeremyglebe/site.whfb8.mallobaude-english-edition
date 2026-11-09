@@ -4,6 +4,12 @@
 }
 
 @media print {
+  /* Contextual links retain the original printed text appearance. */
+  a.cross-reference {
+    color: inherit;
+    text-decoration: none;
+  }
+
   html,
   body {
     background: white;

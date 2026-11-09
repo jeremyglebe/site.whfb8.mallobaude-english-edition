@@ -11,6 +11,7 @@ from pathlib import Path
 import argparse
 import hashlib
 import re
+from document_crosslinks import rules_links
 
 ROOT = Path(__file__).resolve().parents[1]
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
@@ -271,6 +272,7 @@ def build():
             content = re.sub(r'<p>([^<]+) (\d{1,2})</p>', lambda m: f'<p class="toc-entry"><a href="#rules-page-{int(m[2]):02}">{m[1]} <span>{m[2]}</span></a></p>' if 1 <= int(m[2]) <= 56 else m[0], content)
         content = join_reviewed_paragraphs(content, number)
         content = reader_formatting.format_page(content, number)
+        content = rules_links(content, number)
         # Every original illustration remains in the translated web document.
         for art in page.find(lambda n:n.tag=='img' and not n.has('page-background')):
             src = art.attrs['src']
