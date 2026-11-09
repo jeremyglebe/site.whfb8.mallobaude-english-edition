@@ -87,3 +87,8 @@ Virtue of Empathy subsequently verified and applied: https://whfb.lexicanum.com/
 ## Crown wording clarification (Jeremy's request)
 
 Rules p43 now states: “A unit with line of sight to the King automatically passes any Panic tests it is required to take.” This makes the existing Panic-only protection explicit without inventing a named special rule. The separate 18-inch Leadership benefit remains unchanged. Recorded as ED-026; no broader Immune to Psychology benefit is introduced.
+
+
+## 9 November: final reader source artifacts
+
+Checked French pp26/37/39: restored sentence stop after misfire; removed duplicated English “These” at column continuation; restored The Falconer ability heading (French Le Fauconnier) and Skaw as its sentence subject instead of duplicating the Special Rules summary; closed the Guide-reference parenthesis. These are English transcription/formatting artifacts, not corrections to the original rules. Updated authoritative tools/source/rules-layout.html.in and regenerated the reader.

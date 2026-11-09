@@ -158,7 +158,7 @@ import sys
 # Renderer helpers must share the same Node type for both CLI and imported use.
 if __name__ == "__main__":
     sys.modules["build_rules_reader"] = sys.modules[__name__]
-import reader_dukes, reader_profiles, reader_armies
+import reader_dukes, reader_profiles, reader_armies, reader_formatting
 RENDERERS = {n: module.render_page for module in (reader_dukes, reader_profiles, reader_armies) for n in module.TITLES}
 TITLES.update({n: title for module in (reader_dukes, reader_profiles, reader_armies) for n, title in module.TITLES.items()})
 TITLES.update({1:'The Revolt of Mallobaude',2:'Prelude',3:'Contents',56:'About this supplement'})
@@ -270,6 +270,7 @@ def build():
         if number == 3:
             content = re.sub(r'<p>([^<]+) (\d{1,2})</p>', lambda m: f'<p class="toc-entry"><a href="#rules-page-{int(m[2]):02}">{m[1]} <span>{m[2]}</span></a></p>' if 1 <= int(m[2]) <= 56 else m[0], content)
         content = join_reviewed_paragraphs(content, number)
+        content = reader_formatting.format_page(content, number)
         # Every original illustration remains in the translated web document.
         for art in page.find(lambda n:n.tag=='img' and not n.has('page-background')):
             src = art.attrs['src']
