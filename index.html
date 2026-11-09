@@ -3,114 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Revolt of Mallobaude: an unofficial Warhammer Fantasy Battles 8th Edition campaign in English.">
+  <meta name="description" content="The Revolt of Mallobaude: battle scenarios, campaign books and army lists for Warhammer Fantasy Battles 8th Edition.">
   <title>The Revolt of Mallobaude - English Edition</title>
   <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/home.css">
 </head>
-<body>
-  <main class="dashboard">
-    <div class="dashboard-inner">
-      <p class="kicker">Warhammer Fantasy Battles · English Edition</p>
-      <h1>The Revolt<br>of Mallobaude</h1>
-      <p class="lead">Fight the Bretonnian Civil War: follow Mallobaude’s revolt through a branching campaign, with battle scenarios, army lists and the original campaign books in English.</p>
-
-      <section class="dashboard-section" aria-labelledby="bretonnian-civil-war">
-        <div class="dashboard-section__header">
-          <p class="section-kicker">The campaign</p>
-          <h2 id="bretonnian-civil-war">The Bretonnian Civil War</h2>
-          <p>Choose a starting point, prepare your armies and decide Bretonnia’s fate.</p>
-        </div>
-        <div class="cards">
-          <a class="card" href="campaign-overview.html">
-            <small class="card-label">The Revolt of Mallobaude</small>
-            <strong>Campaign Overview &amp; Chronology</strong>
-            <span>The conflict, its principal characters and the course of the civil war.</span>
-          </a>
-          <a class="card" href="battles/index.html">
-            <small class="card-label">Battle scenarios</small>
-            <strong>Battles</strong>
-            <span>Story, forces, setup, rules and outcomes for each engagement, in campaign order.</span>
-          </a>
-          <a class="card" href="guide.html">
-            <small class="card-label">The Revolt of Mallobaude</small>
-            <strong>Campaign Guide</strong>
-            <span>The campaign’s background, branching paths, conclusions and chronology.</span>
-          </a>
-          <a class="card" href="rules.html">
-            <small class="card-label">The Revolt of Mallobaude</small>
-            <strong>Bretonnian Civil War Rules Book</strong>
-            <span>Scenarios, diagrams, characters, special rules and campaign army lists.</span>
-          </a>
-          <a class="card" href="armies/index.html">
-            <small class="card-label">The Revolt of Mallobaude</small>
-            <strong>Campaign Army Lists</strong>
-            <span>Searchable army-building references for all five Civil War lists, including conditional post-campaign commanders and units.</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="dashboard-section" aria-labelledby="downloads">
-        <div class="dashboard-section__header">
-          <p class="section-kicker">Campaign books</p>
-          <h2 id="downloads">Downloads</h2>
-          <p>Download the original French campaign books and the End Times 8.5 rules collection.</p>
-        </div>
-        <div class="cards download-cards">
-          <a class="card" href="downloads/revolt-of-mallobaude-french-game-guide-v1.8.pdf" download>
-            <small class="card-label">Original French · PDF</small>
-            <strong>Campaign Guide</strong>
-            <span>The original French campaign guide from WarFo.</span>
-            <span class="card-action">Download · Version 1.8 · 2.6 MiB</span>
-          </a>
-          <a class="card" href="downloads/revolt-of-mallobaude-french-rules-v1.5.pdf" download>
-            <small class="card-label">Original French · PDF</small>
-            <strong>Rules Book</strong>
-            <span>The original French WFB8 rules, army lists, characters, and scenarios for the campaign.</span>
-            <span class="card-action">Download · Version 1.5 · 2.1 MiB</span>
-          </a>
-          <a class="card" href="downloads/WHFB-End-Times-8.5.pdf" download>
-            <small class="card-label">Supporting rules · PDF</small>
-            <strong>The End Times 8.5</strong>
-            <span>A fan-compiled collection of rules for playing Warhammer 8th Edition through the End Times.</span>
-            <span class="card-action">Download · 20.2 MiB</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="dashboard-section dashboard-section--compact" aria-labelledby="editorial-workbench">
-        <div class="dashboard-section__header">
-          <p class="section-kicker">Reference</p>
-          <h2 id="editorial-workbench">Editorial Notes</h2>
-        </div>
-        <div class="cards">
-          <a class="card" href="editorial/glossary.html">
-            <small class="card-label">Translation Reference</small>
-            <strong>Glossary</strong>
-            <span>Canonical English names, unit terms, locations, titles, and source notes.</span>
-          </a>
-          <a class="card" href="editorial/decisions.html">
-            <small class="card-label">Translation Reference</small>
-            <strong>Editorial Decisions</strong>
-            <span>Translation choices, corrections and unresolved rules questions.</span>
-          </a>
-        </div>
-      </section>
-
-      <section class="dashboard-section dashboard-section--compact" aria-labelledby="other-end-times-content">
-        <div class="dashboard-section__header">
-          <p class="section-kicker">Separate collection</p>
-          <h2 id="other-end-times-content">Other End Times Content</h2>
-          <p>Spells, summoning tools and rules for games set during the End Times.</p>
-        </div>
-        <div class="cards">
-          <a class="card" href="other-end-times-content.html">
-            <small class="card-label">Related material</small>
-            <strong>Other End Times Content</strong>
-            <span>Find spells, calculate summoning allowances and consult the End Times 8.5 rules collection.</span>
-          </a>
-        </div>
-      </section>
-    </div>
+<body class="campaign-home">
+  <a class="skip-link" href="#campaign">Skip to campaign</a>
+  <header class="home-nav">
+    <span class="home-mark">The Revolt of Mallobaude</span>
+    <nav aria-label="Main navigation"><a href="battles/index.html">Battles</a><a href="guide.html">Guide</a><a href="rules.html">Rules</a><a href="armies/index.html">Armies</a></nav>
+  </header>
+  <main id="campaign" class="home-shell">
+    <section class="home-hero" aria-labelledby="campaign-title">
+      <img src="assets/guide/page-02-image-03.jpg" alt="Bretonnian knights riding to war" fetchpriority="high">
+      <div class="hero-copy"><p class="home-eyebrow">Warhammer Fantasy Battles · 8th Edition</p><h1 id="campaign-title">The Revolt of Mallobaude</h1><p>A Bretonnian civil war campaign. English edition.</p></div>
+    </section>
+    <section class="play-links" aria-label="Campaign resources">
+      <a class="play-link play-link--primary" href="battles/index.html"><span class="link-number" aria-hidden="true">I</span><span><strong>Battles</strong><span>Scenarios, setup and outcomes, in campaign order.</span></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+      <a class="play-link" href="guide.html"><span class="link-number" aria-hidden="true">II</span><span><strong>Campaign Guide</strong><span>The story, branching paths and conclusions.</span></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+      <a class="play-link" href="rules.html"><span class="link-number" aria-hidden="true">III</span><span><strong>Rules</strong><span>Characters, army lists and scenario rules.</span></span><span class="link-arrow" aria-hidden="true">↗</span></a>
+    </section>
+    <section class="reference-grid" aria-label="At the table">
+      <a class="reference-link" href="armies/index.html"><strong>Army Reference <span aria-hidden="true">→</span></strong><span>Search the campaign’s five army lists.</span></a>
+      <a class="reference-link" href="campaign-overview.html"><strong>Campaign Overview <span aria-hidden="true">→</span></strong><span>Characters, chronology and the course of the war.</span></a>
+    </section>
+    <section class="home-library" aria-labelledby="library-title">
+      <div><h2 id="library-title">Books &amp; references</h2><p>The original French books and supporting material.</p></div>
+      <div class="library-columns">
+        <section aria-labelledby="downloads-title"><h3 id="downloads-title">Downloads</h3><ul class="resource-list">
+          <li><a href="downloads/revolt-of-mallobaude-french-game-guide-v1.8.pdf" download>French Campaign Guide <span>PDF · v1.8</span></a></li>
+          <li><a href="downloads/revolt-of-mallobaude-french-rules-v1.5.pdf" download>French Rules Book <span>PDF · v1.5</span></a></li>
+          <li><a href="downloads/WHFB-End-Times-8.5.pdf" download>End Times 8.5 <span>PDF · fan compilation</span></a></li>
+        </ul></section>
+        <section aria-labelledby="reference-title"><h3 id="reference-title">Reference</h3><ul class="resource-list">
+          <li><a href="editorial/glossary.html">Translation Glossary</a></li>
+          <li><a href="editorial/decisions.html">Editorial Decisions</a></li>
+          <li><a href="other-end-times-content.html">Other End Times Content</a></li>
+        </ul></section>
+      </div>
+    </section>
   </main>
+  <footer class="home-footer"><p>An unofficial WarFo fan campaign. Warhammer names and artwork belong to their respective owners.</p></footer>
 </body>
 </html>
