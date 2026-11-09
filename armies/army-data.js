@@ -1,6 +1,6 @@
 window.CAMPAIGN_ARMY_DATA = {
   "version": 1,
-  "sourceNote": "Campaign overrides are taken from The Revolt of Mallobaude. Referenced army-book entries use the archived BSData WHFB catalogue as a transcription aid and should be checked against the printed book during the editorial pass.",
+  "sourceNote": "Army-book entries have not all been verified against the printed books; check their listed references before play.",
   "armies": {
     "rebels-of-bretonnia": {
       "name": "The Rebels of Bretonnia",

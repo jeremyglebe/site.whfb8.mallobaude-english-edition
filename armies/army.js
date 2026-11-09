@@ -124,7 +124,7 @@
   }
 
   function renderOptions(options) {
-    if (!options || !options.length) return '<p class="empty-field">No options transcribed.</p>';
+    if (!options || !options.length) return '<p class="empty-field">Options not listed here.</p>';
     return options.map((option) => `
       <div class="option-row">
         <span class="option-label">
@@ -160,7 +160,7 @@
           <span class="unit-price">${escapeHtml(entry.points || "Points not specified")}</span>
         </summary>
         <div class="unit-body">
-          ${entry.comparedTo ? `<p class="unit-comparison"><strong>As compared to:</strong> ${escapeHtml(entry.comparedTo)}</p>` : ""}
+          ${entry.comparedTo ? `<p class="unit-comparison"><strong>Based on:</strong> ${escapeHtml(entry.comparedTo)}</p>` : ""}
           ${notes.map((note) => `<p class="unit-note">${escapeHtml(note)}</p>`).join("")}
           <div class="unit-meta">
             <span><strong>Unit size:</strong> ${escapeHtml(entry.unitSize || "Not specified")}</span>
@@ -195,7 +195,7 @@
         <a href="index.html">All Armies</a>
         <a href="../rules.html">Rules</a>
         <a href="../guide.html">Game Guide</a>
-        <a href="../editorial/decisions.html">Editorial Log</a>
+        <a href="../editorial/decisions.html">Editorial Decisions</a>
       </nav>`;
   }
 
@@ -203,7 +203,7 @@
     if (!items || !items.length) return "";
     return `
       <section class="outcome-panel campaign-role" aria-labelledby="campaign-role-title">
-        <h2 id="campaign-role-title">Where This Army Fits in the Campaign</h2>
+        <h2 id="campaign-role-title">Campaign Use</h2>
         <div class="army-rules-grid">
           ${items.map((item) => `
             <div class="army-rule-item">
@@ -221,12 +221,12 @@
   function renderDesignNotes(notes) {
     if (!notes) return "";
     const columns = [
-      ...(notes.settled && notes.settled.length ? [{ title: "Settled in this draft", items: notes.settled }] : []),
-      ...(notes.open && notes.open.length ? [{ title: "Still open for playtest", items: notes.open }] : [])
+      ...(notes.settled && notes.settled.length ? [{ title: "Army Rules", items: notes.settled }] : []),
+      ...(notes.open && notes.open.length ? [{ title: "Questions for Playtesting", items: notes.open }] : [])
     ];
     return `
       <section class="outcome-panel" aria-labelledby="design-notes-title">
-        <h2 id="design-notes-title">${escapeHtml(notes.title || "Playtest Draft")}</h2>
+        <h2 id="design-notes-title">${escapeHtml(notes.title || "Playtest Notes")}</h2>
         ${notes.intro ? `<p>${escapeHtml(notes.intro)}</p>` : ""}
         <div class="army-rules-grid">
           ${columns.map((column) => `<div class="army-rule-item"><strong>${escapeHtml(column.title)}</strong>${renderList(column.items, "Nothing recorded.")}</div>`).join("")}
@@ -239,7 +239,7 @@
     return `
       <section class="outcome-panel" aria-labelledby="outcome-title">
         <h2 id="outcome-title">Outcome-Dependent Additions</h2>
-        <p>These entries are conditional. Their notes state which campaign conclusion permits them; they are not silently added to the printed list.</p>
+        <p>Use these entries only when permitted by the campaign outcome listed below.</p>
         <div class="outcome-links">
           ${additions.map((reference) => {
             const entry = data.entries[reference.id];
@@ -295,8 +295,8 @@
         </section>
         ${renderOutcomeAdditions(army.outcomeAdditions)}
         ${army.sourceNote
-          ? `<p class="source-note">${escapeHtml(army.sourceNote)}</p>`
-          : `<p class="source-note">${escapeHtml(data.sourceNote)} Full official-rule definitions are stored locally from the <a href="https://8th.whfb.app/special-rules" target="_blank" rel="noreferrer">WHFB8 Online Rules Index</a> and retain links to their individual sources. Missing fields are deliberately marked instead of inferred.</p>`}
+          ? `<p class="source-note">${escapeHtml(army.sourceNote)} <a href="../editorial/army-notes.html">Reference notes</a>.</p>`
+          : `<p class="source-note">${escapeHtml(data.sourceNote)} <a href="../editorial/army-notes.html">Reference notes</a>.</p>`}
         ${army.categories.map((category) => `
           <section class="army-category" id="${slug(category.name)}">
             <h2 class="category-title">${escapeHtml(category.name)}</h2>
@@ -343,7 +343,7 @@
       <main class="army-hub">
         <p class="eyebrow">The Revolt of Mallobaude · Army-List Reference</p>
         <h1>Campaign Armies</h1>
-        <p class="intro">Compact, searchable references for the supplement's five campaign lists and a clearly labelled optional project-created variant. Campaign rules take precedence over referenced army books.</p>
+        <p class="intro">Choose a campaign army below. Campaign rules take precedence over the army books. Morrslieb's Laughing Masses is an optional four-player variant.</p>
         <section class="army-card-grid" aria-label="Campaign army lists">
           ${armies.map(([id, army]) => `
             <a class="army-choice-card" href="${armyFiles[id]}">
@@ -356,7 +356,7 @@
         <section class="leadership-panel" id="post-campaign-leadership" aria-labelledby="leadership-title">
           <p class="eyebrow">Branching Campaign Outcomes</p>
           <h2 id="leadership-title">Post-Campaign Leadership</h2>
-          <p>The campaign produces different rulers and commanders. These are alternatives tied to their stated ending, not a pool of characters available together.</p>
+          <p>Use the rulers and commanders allowed by your campaign ending; these alternatives are not available together.</p>
           <div class="outcome-links">
             ${data.postCampaignLeaders.map((reference) => {
               const entry = data.entries[reference.id];

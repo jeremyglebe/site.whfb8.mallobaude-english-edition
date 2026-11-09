@@ -5,8 +5,8 @@ window.CAMPAIGN_ARMY_VARIANTS = {
       "name": "Morrslieb's Laughing Masses",
       "subtitle": "Mousillon's peasantry erupting into monstrous new shapes beneath the grinning Chaos moon",
       "sourcePage": 45,
-      "eyebrow": "The Year of Woe · Optional Project-Created Four-Player Variant",
-      "cardLabel": "Optional project-created scenario force",
+      "eyebrow": "The Year of Woe · Optional Four-Player Variant",
+      "cardLabel": "Optional four-player army",
       "sourceLabel": "Daemonic Assault on Mousillon, pp. 45–46",
       "sourceHref": "../rules.html#rules-page-45",
       "books": [
@@ -17,7 +17,7 @@ window.CAMPAIGN_ARMY_VARIANTS = {
         "WAP Cult of Ulric · Discord Archive 8th Edition",
         "The Revolt of Mallobaude"
       ],
-      "sourceNote": "This optional project-created variant uses the listed WAP 8th Edition sources for unit profiles and options.",
+      "sourceNote": "Use the listed WAP 8th Edition books for unit profiles and options.",
       "campaignRole": [
         {
           "title": "Daemonic Assault on Mousillon — Four-Player Variant",
