@@ -1,0 +1,3 @@
+.commander-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.commander-grid .battle-card{margin:0}.role-list{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:.45rem 1rem}.role-list dt{font-weight:700;color:#5c191e}.role-list dd{margin:0}.assignment{scroll-margin-top:6rem}.assignment h3{font-size:1.35rem}.battles-shell li+li{margin-top:.45rem}
+.battle-index li+li{margin-top:0}
+@media(max-width:600px){.commander-grid{grid-template-columns:1fr}.role-list{grid-template-columns:1fr;gap:.2rem}.role-list dd{margin-bottom:.6rem}.assignment{scroll-margin-top:1rem}}@media print{.commander-grid{display:block}.assignment{break-inside:avoid}.role-list{grid-template-columns:7rem 1fr}}
