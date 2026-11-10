@@ -85,8 +85,13 @@ window.CAMPAIGN_RULE_DEFINITIONS = {
       sourceReference: "The Revolt of Mallobaude, p. 31",
       sourceUrl: "../rules.html#rules-page-31"
     },
+    "The Falconer": {
+      html: "<p>Skaw can never join a unit, cannot use the General’s Leadership, and cannot be the General.</p>",
+      sourceReference: "The Revolt of Mallobaude, p. 37",
+      sourceUrl: "../rules.html#rules-page-37"
+    },
     "Life Cycle": {
-      html: "<p>Choose Ariel’s creative or destructive aspect when selecting her. Her magic items, special rules, and Lore of Magic depend upon that choice. She is a Level 4 Wizard and Loremaster of High Magic in the creative cycle or Dark Magic in the destructive cycle.</p>",
+      html: "<p>Choose Ariel’s creative or destructive aspect when selecting her. Her magic items, special rules, and Lore of Magic depend upon that choice. She is a Level 4 Wizard and Loremaster of High Magic in the creative cycle or Dark Magic in the destructive cycle. In the creative cycle she has Forest Strider; in the destructive cycle she has Terror.</p>",
       sourceReference: "The Revolt of Mallobaude, p. 34",
       sourceUrl: "../rules.html#rules-page-34"
     },
@@ -101,7 +106,7 @@ window.CAMPAIGN_RULE_DEFINITIONS = {
       sourceUrl: "../rules.html#rules-page-34"
     },
     "Scarloc's Archers": {
-      html: "<p>An army containing Scarloc must also include a unit of Deepwood Scouts, upgraded at no additional cost to Scarloc’s Archers. No other character may join it. Glam the Laugher is its champion and follows the Bladesinger rules; Kaia Stormwitch is its standard bearer and can cast Urannon’s Thunderbolt as a Bound Spell (power level 3); Araflame is its musician and is lost if the unit flees, like a standard bearer. The unit’s remaining special equipment is detailed on page 36.</p>",
+      html: "<p>An army containing Scarloc must also include a unit of Deepwood Scouts, upgraded at no additional cost to Scarloc’s Archers. Pay the normal Deepwood Scouts unit cost. The unit automatically receives its special command group; no other option is available, and no other character may join it. Glam the Laugher is its champion and follows the Bladesinger rules, with two hand weapons instead of an Asrai bow; Kaia Stormwitch is its standard bearer, always carries the Standard of the Valiant Heart, and can cast Urannon’s Thunderbolt as a Bound Spell (power level 3), but her Storm Witch ability is lost if she is removed; Araflame is its musician and is lost if the unit flees, like a standard bearer. The unit’s special equipment is summarised in the card notes; see page 36 for the source rules.</p>",
       sourceReference: "The Revolt of Mallobaude, p. 36",
       sourceUrl: "../rules.html#rules-page-36"
     },

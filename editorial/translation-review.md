@@ -191,3 +191,46 @@ The earlier denied browser route was not retried.
 Final checks: all **51 tests** pass; `build_rules_reader.py --check` confirms
 canonical-reader consistency; `git diff --check` passes. Publication scope is
 only the new Dark Knight note, focused regression additions and this receipt.
+
+## 10 November 2026: Asrai campaign-reference group
+
+Baseline main: `a72dc751c4422e16e3787e5b6ece4e2b55b28a28`. Checked original
+French Rules v1.5 pp34 and 36–38 visually and against the canonical English.
+All four profiles, costs and troop types agree. This pass repairs separate
+army-card omissions and one incorrect imported rule, not the canonical text.
+
+- Ariel p34: Life Cycle now states Forest Strider in the creative cycle and
+  Terror in the destructive cycle. Neither is attached unconditionally.
+  Her Level 4/Loremaster, Sylph's Voice and aura disclosures already match.
+  Her magic items remain explicitly referred to p34 rather than reproduced.
+- Scarloc p36: preserves payment for the ordinary Scouts unit and free upgrade;
+  restores automatic command/no other options, Glam's two hand weapons in
+  place of the bow, Kaia's compulsory standard and loss of Storm Witch when
+  removed. Notes add the sword's Armour Piercing, the standard's rank bonus,
+  Steadfast and flank/rear disruption despite Skirmishers, and Carynx's Fear
+  against non-Elves. Existing bound-spell power 3 and musician loss remain.
+- Skaw p37: replaces the incorrect imported Ogre Hunter “Loner” disclosure
+  with “The Falconer”: he cannot join any unit, use the General's Leadership,
+  or be General. The genuine Ogre rule is unchanged. Notes restore Talon
+  Whip's -1 Attack (minimum 1) for the rest of the turn, Feather Cloak's 4+
+  ranged armour save, and three S4/24-inch hawk shots hitting on 2+ against
+  the same unit, plus D3 additional close-combat Attacks.
+- Sceolan p38: restores the Bronze Buckler as a shield and one Stomp Attack
+  for each close-combat Attack rolling 1 To Hit against him. The printed
+  Stomp wording is preserved without invented timing or target exceptions.
+
+Authoritative inputs are army-data.js and campaign-rule-definitions.js.
+The index builder reads special-rule names from army-data.js and generates
+rule-definitions.js; it does not generate either edited input. The Falconer
+has a campaign definition that takes precedence over indexed definitions,
+so an external index refresh is unnecessary. The genuine Loner definition
+and all unrelated army entries remain unchanged. No reader output changes.
+
+Six focused tests fail on baseline (five assertions and one renderer error),
+then pass after correction. Full suite: 57 tests pass; canonical reader
+consistency and diff whitespace checks pass. Tests exercise actual Alliance
+cards through the JS renderer and check source identity/conditionality,
+weapon restrictions and unchanged genuine Ogre rule. Prior Banshee, Pennon
+and Ghost Blade regressions remain green. Browser visual QA is not claimed;
+the denied browser route was not retried. Inherited army-book definitions
+and remaining campaign references are outside this bounded coverage.

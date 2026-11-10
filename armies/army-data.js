@@ -6184,7 +6184,10 @@ window.CAMPAIGN_ARMY_DATA = {
       ],
       "options": [],
       "notes": [
-        "Requires a Deepwood Scouts unit upgraded to Scarloc's Archers."
+        "Requires a Deepwood Scouts unit upgraded to Scarloc's Archers.",
+        "Darkwood Rune Sword is a magic weapon granting Armour Piercing.",
+        "The Standard of the Valiant Heart allows the unit to gain a rank bonus, be Steadfast, and disrupt enemies with flank or rear attacks despite being Skirmishers.",
+        "Carynx, the Horn of Beasts, causes Fear in non-Elves."
       ],
       "source": "The Revolt of Mallobaude, p. 36",
       "sourceHref": "../rules.html#rules-page-36",
@@ -6219,10 +6222,14 @@ window.CAMPAIGN_ARMY_DATA = {
       "specialRules": [
         "Always Strikes First",
         "Forest Strider",
-        "Loner"
+        "The Falconer"
       ],
       "options": [],
-      "notes": [],
+      "notes": [
+        "Any model hit by the Talon Whip loses 1 Attack, to a minimum of 1, for the rest of the turn.",
+        "The Feather Cloak grants a 4+ armour save against ranged attacks.",
+        "Hawks make three Strength 4 shooting attacks at a range of 24 inches, always hitting on 2+. All three attacks must target the same unit. In close combat, the hawks grant D3 additional Attacks."
+      ],
       "source": "The Revolt of Mallobaude, p. 37",
       "sourceHref": "../rules.html#rules-page-37",
       "status": "campaign"
@@ -6260,7 +6267,9 @@ window.CAMPAIGN_ARMY_DATA = {
         "Talon of Kurnous"
       ],
       "options": [],
-      "notes": [],
+      "notes": [
+        "The Bronze Buckler is a shield. For each close-combat Attack that rolls a 1 To Hit against Sceolan, he gains one Stomp Attack."
+      ],
       "source": "The Revolt of Mallobaude, p. 38",
       "sourceHref": "../rules.html#rules-page-38",
       "status": "campaign"
