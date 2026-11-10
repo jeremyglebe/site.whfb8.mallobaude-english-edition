@@ -92,3 +92,65 @@ Rules p43 now states: “A unit with line of sight to the King automatically pas
 ## 9 November: final reader source artifacts
 
 Checked French pp26/37/39: restored sentence stop after misfire; removed duplicated English “These” at column continuation; restored The Falconer ability heading (French Le Fauconnier) and Skaw as its sentence subject instead of duplicating the Special Rules summary; closed the Guide-reference parenthesis. These are English transcription/formatting artifacts, not corrections to the original rules. Updated authoritative tools/source/rules-layout.html.in and regenerated the reader.
+
+## 10 November 2026: bounded army-reference Pennon audit
+
+Baseline: GitHub main and the existing cloud checkout independently resolve to
+`427583edf61c884a9cdb366c83bf443324428cee`. This receipt is in the existing editorial review rather than
+a parallel decision ledger. The broad army-book/reference audit remains open.
+
+Scope: the **Bearers of the Pennon of Mousillon** disclosure on the Black Grail
+Knights army card, not the already-completed canonical translation. Prior review
+recorded the free-Pennon correction for Rules p24; canonical `rules.html:289`
+already says “automatically receives the Cursed Pennon of Mousillon, free”.
+ED-027 did not carry that cost wording into this separate disclosure.
+
+Source: preserved French Rules v1.5, printed/PDF p24, bottom-right rules block,
+visually checked from the rendered original page as well as extracted text:
+“Si l’unité comprend un porte-étendard, elle reçoit automatiquement et sans
+surcoût le Pennon Maudit du Moussillon (voir page 18). Elle ne peut pas
+l’échanger contre un autre étendard, et aucune autre figurine de l’armée ne peut
+le posséder.” Source link: ../downloads/revolt-of-mallobaude-french-rules-v1.5.pdf#page=24.
+
+Affected file: `armies/campaign-rule-definitions.js:59` (definition begins at
+line 58). Before, complete text:
+
+“If the unit includes a standard bearer, it automatically receives the Cursed
+Pennon of Mousillon. It may not exchange the Pennon for another standard, and
+no other model in the army may carry it.”
+
+After, complete text:
+
+“If the unit includes a standard bearer, it automatically receives the Cursed
+Pennon of Mousillon at no additional cost. It may not exchange the Pennon for
+another standard, and no other model in the army may carry it.”
+
+Only “at no additional cost” is added. Standard-bearer condition, compulsory
+receipt, non-exchangeability and army uniqueness remain unchanged. This is not
+a new free upgrade or a change to the separately printed +3 points/model
+Black Grail upgrade. The known p22/p24 all-units/one-unit conflict and the
+unspecified save in the curse remain untouched, as recorded above and ED-024.
+
+Routing: `army-data.js:5898` attaches this special rule to
+`black-grail-knights`. `army.js:59–62` resolves the campaign definition and
+`army.js:178` renders the disclosure. Equipment names are plain text, not rule
+disclosures; no shared-shield behavior was changed. Mortal Rebel Black Grail
+Knights do not receive the Pennon rule through this change.
+
+Verification: the new exact-text/source/attachment regression and actual
+Mousillon HTML-renderer assertion both failed against unchanged baseline text.
+After the one-phrase correction both pass. The renderer test also exercises
+all six army pages and the index using the actual JS with a minimal DOM stub;
+it is not browser visual QA. Full-suite and generator check results follow.
+
+Final checks: `python -m unittest discover -s tools -p 'test*.py'` passes
+**50 tests**; `python tools/build_rules_reader.py --check` confirms the existing
+canonical reader matches its input and assigns every curated region once;
+`git diff --check` passes. No generated document changed. No browser layout
+claim is made for the one-phrase disclosure edit.
+
+Publication preparation: remote main was rechecked and still matched this baseline.
+Only the one-phrase disclosure correction, focused regression updates and this
+receipt are included. Actual-renderer checks cover all army routes; browser
+visual QA is not claimed. The previously documented browser launch restriction
+was not retried.

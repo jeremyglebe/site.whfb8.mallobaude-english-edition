@@ -15,6 +15,13 @@ class CampaignArmyOverrides(unittest.TestCase):
         cls.armies = cls.data['CAMPAIGN_ARMY_DATA']['armies']
         cls.rules = cls.data['CAMPAIGN_RULE_DEFINITIONS']['definitions']
 
+    def test_pennon_source_cost_and_restrictions(self):
+        rule = self.rules['Bearers of the Pennon of Mousillon']
+        self.assertEqual(rule['html'], '<p>If the unit includes a standard bearer, it automatically receives the Cursed Pennon of Mousillon at no additional cost. It may not exchange the Pennon for another standard, and no other model in the army may carry it.</p>')
+        self.assertEqual(rule['sourceUrl'], '../rules.html#rules-page-24')
+        self.assertIn('Bearers of the Pennon of Mousillon', self.entries['black-grail-knights']['specialRules'])
+        self.assertNotIn('Bearers of the Pennon of Mousillon', self.entries['mortal-black-grail-knights']['specialRules'])
+
     def test_campaign_arkhan(self):
         a = self.entries['arkhan-campaign']
         self.assertIn('Master Necromancer', a['troopType'])
@@ -75,6 +82,7 @@ for (const army of ['rebels-of-bretonnia','mousillon','wildwood-host','alliance-
  vm.createContext(context); for(const file of files)vm.runInContext(fs.readFileSync('armies/'+file,'utf8'),context);
  if(!app.innerHTML.includes('army-nav'))throw Error(army+' did not render');
  if(army==='rebels-of-bretonnia' && (!app.innerHTML.includes('unit-mortal-black-grail-knights') || !app.innerHTML.includes('Gain one free power die')))throw Error('Rebel override not rendered');
+ if(army==='mousillon' && !app.innerHTML.includes('Cursed Pennon of Mousillon at no additional cost.'))throw Error('Free Pennon disclosure absent');
  if(army==='mousillon' && !app.innerHTML.includes('Master Necromancer'))throw Error('Arkhan override absent');
  if(army==='rebels-of-bretonnia' && !app.innerHTML.includes('<a href="../rules.html#rules-page-21">The Revolt of Mallobaude, p. 21;'))throw Error('Campaign card source link missing');
 }

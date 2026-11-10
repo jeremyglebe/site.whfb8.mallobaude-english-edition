@@ -56,7 +56,7 @@ window.CAMPAIGN_RULE_DEFINITIONS = {
       sourceUrl: "../rules.html#rules-page-24"
     },
     "Bearers of the Pennon of Mousillon": {
-      html: "<p>If the unit includes a standard bearer, it automatically receives the Cursed Pennon of Mousillon. It may not exchange the Pennon for another standard, and no other model in the army may carry it.</p>",
+      html: "<p>If the unit includes a standard bearer, it automatically receives the Cursed Pennon of Mousillon at no additional cost. It may not exchange the Pennon for another standard, and no other model in the army may carry it.</p>",
       sourceReference: "The Revolt of Mallobaude, p. 24",
       sourceUrl: "../rules.html#rules-page-24"
     },
