@@ -5800,7 +5800,9 @@ window.CAMPAIGN_ARMY_DATA = {
         "Knight, Lord of the Dead"
       ],
       "options": [],
-      "notes": [],
+      "notes": [
+        "Ghost Blade is a magic weapon with Multiple Wounds (1D3) that ignores armour saves."
+      ],
       "source": "The Revolt of Mallobaude, p. 31",
       "sourceHref": "../rules.html#rules-page-31",
       "status": "campaign"

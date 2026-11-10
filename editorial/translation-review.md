@@ -154,3 +154,40 @@ Only the one-phrase disclosure correction, focused regression updates and this
 receipt are included. Actual-renderer checks cover all army routes; browser
 visual QA is not claimed. The previously documented browser launch restriction
 was not retried.
+
+
+## 10 November 2026: Dark Knight army-reference weapon disclosure
+
+Bounded follow-up to the Pennon correction, based on main
+`3c3a1d43e5fc47de42cdf1ba2e35fd2d04e81d12`. French Rules v1.5 p31
+was visually checked against canonical `rules.html:381` and the army data.
+The canonical translation already correctly includes the weapon mechanics.
+The army card listed Ghost Blade as equipment without its mechanics.
+
+French: “Arme magique. La Lame Fantôme possède la règle Blessures Multiples
+(1D3) et ignore les sauvegardes d’armure.”
+
+In `armies/army-data.js`, the Dark Knight notes were empty. The complete new
+note is: “Ghost Blade is a magic weapon with Multiple Wounds (1D3) that ignores
+armour saves.” Equipment, points, profiles and other rules are unchanged.
+This is a campaign-reference omission, not an error in the French source.
+
+The same p31 comparison checked the Dark Knight's 260-point cost, specified
+equipment, Dread Knight and Red Fury attachments and march permission, plus
+the Banshee's +50 cost, Hover, and Level 1 Death/Vampires magic. These campaign
+additions agree. Inherited army-book profiles/rules are outside this bounded
+verification. No source ambiguities were changed.
+
+Repository source inspection finds no generator for army-data.js: it is an
+input read by build_rule_definitions.py, whose output is rule-definitions.js.
+The note does not alter specialRules, so no indexed-definition refresh is
+needed. The canonical reader is unchanged.
+
+The exact-note and actual-rendered-card assertions fail before the correction.
+A full-entry Banshee hash regression ensures that entry remains unchanged.
+The actual JS renderer is exercised with a minimal DOM, not browser layout QA.
+The earlier denied browser route was not retried.
+
+Final checks: all **51 tests** pass; `build_rules_reader.py --check` confirms
+canonical-reader consistency; `git diff --check` passes. Publication scope is
+only the new Dark Knight note, focused regression additions and this receipt.

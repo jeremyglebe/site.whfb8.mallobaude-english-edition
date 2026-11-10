@@ -2,6 +2,7 @@
 Node evaluates the actual JS data and renderer; this is not visual browser QA.
 """
 import json
+import hashlib
 import subprocess
 import unittest
 from pathlib import Path
@@ -21,6 +22,11 @@ class CampaignArmyOverrides(unittest.TestCase):
         self.assertEqual(rule['sourceUrl'], '../rules.html#rules-page-24')
         self.assertIn('Bearers of the Pennon of Mousillon', self.entries['black-grail-knights']['specialRules'])
         self.assertNotIn('Bearers of the Pennon of Mousillon', self.entries['mortal-black-grail-knights']['specialRules'])
+
+    def test_ghost_blade_and_unchanged_banshee(self):
+        self.assertEqual(self.entries['dark-knight']['notes'], ['Ghost Blade is a magic weapon with Multiple Wounds (1D3) that ignores armour saves.'])
+        self.assertEqual(self.entries['dark-knight']['sourceHref'], '../rules.html#rules-page-31')
+        self.assertEqual(hashlib.sha256(json.dumps(self.entries['banshee-lieutenant'], sort_keys=True).encode()).hexdigest(), '320f9172a01ac47286f0d961c24bc2345d1ab6d57d516fa9032d8a617baa4e10')
 
     def test_campaign_arkhan(self):
         a = self.entries['arkhan-campaign']
@@ -83,6 +89,12 @@ for (const army of ['rebels-of-bretonnia','mousillon','wildwood-host','alliance-
  if(!app.innerHTML.includes('army-nav'))throw Error(army+' did not render');
  if(army==='rebels-of-bretonnia' && (!app.innerHTML.includes('unit-mortal-black-grail-knights') || !app.innerHTML.includes('Gain one free power die')))throw Error('Rebel override not rendered');
  if(army==='mousillon' && !app.innerHTML.includes('Cursed Pennon of Mousillon at no additional cost.'))throw Error('Free Pennon disclosure absent');
+ if(army==='mousillon') {
+   const start=app.innerHTML.indexOf('id="unit-dark-knight"');
+   const end=app.innerHTML.indexOf('<details class="unit-card',start+1);
+   const card=app.innerHTML.slice(start,end<0?undefined:end);
+   if(start<0 || !card.includes('<p class="unit-note">Ghost Blade is a magic weapon with Multiple Wounds (1D3) that ignores armour saves.</p>'))throw Error('Ghost Blade note absent from Dark Knight card');
+ }
  if(army==='mousillon' && !app.innerHTML.includes('Master Necromancer'))throw Error('Arkhan override absent');
  if(army==='rebels-of-bretonnia' && !app.innerHTML.includes('<a href="../rules.html#rules-page-21">The Revolt of Mallobaude, p. 21;'))throw Error('Campaign card source link missing');
 }
