@@ -234,3 +234,41 @@ weapon restrictions and unchanged genuine Ogre rule. Prior Banshee, Pennon
 and Ghost Blade regressions remain green. Browser visual QA is not claimed;
 the denied browser route was not retried. Inherited army-book definitions
 and remaining campaign references are outside this bounded coverage.
+
+## 10 November 2026: Wildwood reference disclosures, pp25–29
+
+Baseline: `8d684ccf64017dcdb5929460fb465b062ece5a7d`. Compared French Rules
+v1.5 pp25–29 with the canonical English and rendered army cards. The canonical
+mechanics agree with the source. This patch expands the cards' page pointers.
+
+Wildwood-only reference notes now include Branchwraith Aspect prices and
+joining restriction, Branchwych cost/level/halberd, Bittergrub cost and attack,
+Dryad Aspects and Spirit Dryads, Kurnoth weapons and unit-count restriction,
+and bow-only Kurnoth Quiverlings. Treeman notes explain the optional Onager
+shot and preserve the different Strangleroots conditions. Ancient Treekin
+receives a conditional Quiverling effect note; its existing cost, Elder
+profile, free 3+ Scaly Skin and weapon options are unchanged.
+
+Multiple Attacks (D3) remains literal. The Kurnoth unit-count wording is not
+interpreted. Willow retains the source's Dryad-specific wording, including
+in the Branchwraith note. That does not settle how Willow affects a character.
+Ancient Treekin does not acquire the Kurnoth bow restriction. Branchwraith
+upgrades are not made mutually exclusive. Eternal Hatred is named without
+inventing a definition. Source interpretation remains separate from translation.
+
+army-data.js is an input, not a generated output. No special-rule names were
+changed, so the index generator needs no refresh. The renderer is unchanged.
+The full rendered Alliance page matches its baseline hash. Shared army-book
+entries were not changed. Only the five Wildwood reference notes and the
+Ancient Treekin note changed in army data.
+
+Five of six new tests fail on baseline; all six pass after the patch. The
+Alliance preservation check passes before and after. All 63 tests pass.
+The canonical reader consistency check and diff whitespace check pass.
+Actual Wildwood card output contains the new conditions. Browser visual QA
+was not run. The previously denied browser route was not retried.
+
+Book-only profiles, costs, Drycha's full awakening rule and inherited rule
+text remain outside this check. The rest of the campaign-reference audit
+remains open, including remaining Mallobaude equipment/routing and the
+Chevaliers-Moires/post-campaign character group.

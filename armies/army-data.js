@@ -366,7 +366,7 @@ window.CAMPAIGN_ARMY_DATA = {
             },
             {
               "id": "treeman-ancient",
-              "note": "May take the Wildwood Onager upgrade for +25 points."
+              "note": "May take the Wildwood Onager upgrade for +25 points. If taken, it fires as a stone thrower with a range of 36 inches and the small template: Strength 10 beneath the central hole and Strength 5 elsewhere. It has Move or Fire, and the model loses D3 Wounds on a misfire. A Treeman Ancient with this upgrade and Strangleroots may fire both weapons in the same phase. See page 26."
             }
           ]
         },
@@ -378,7 +378,7 @@ window.CAMPAIGN_ARMY_DATA = {
             },
             {
               "id": "branchwraith",
-              "note": "May take a Wildwood Aspect, become a Branchwych, or take a Bittergrub as described on page 29."
+              "note": "A Branchwraith may take Birch for +5 points, Oak for +10 points, or Willow for +10 points. A Branchwraith with an Aspect may only join a unit with the same Aspect. Birch grants Devastating Charge; Oak grants Scaly Skin (5+); the printed Willow rule gives enemy units −1 To Hit the Dryads in close combat. A Branchwraith may become a Branchwych for +40 points. A Branchwych is a Level 2 Wizard equipped with a Greenwood Scythe (halberd). A Branchwraith or Branchwych may take a Bittergrub for +10 points. It grants one close-combat Attack with Armour Piercing, using the character’s Weapon Skill, Initiative 4 and Strength 2. See pages 28–29."
             },
             {
               "id": "ancient-treekin"
@@ -393,7 +393,7 @@ window.CAMPAIGN_ARMY_DATA = {
             },
             {
               "id": "dryads",
-              "note": "May take a Wildwood Aspect or become Spirit Dryads as described on page 28."
+              "note": "A Dryad unit may take Birch for +1 point per model, Oak for +2, or Willow for +2. Birch grants Devastating Charge; Oak grants Scaly Skin (5+); Willow gives enemy units −1 To Hit the Dryads in close combat. A unit without an Aspect may become Spirit Dryads for +5 points per model. Spirit Dryads have Eternal Hatred and impose −1 Leadership on enemies in contact. See page 28."
             }
           ]
         },
@@ -402,7 +402,7 @@ window.CAMPAIGN_ARMY_DATA = {
           "entries": [
             {
               "id": "treekin",
-              "note": "A unit may become Kurnoth Hunters for +3 points per model; see page 27."
+              "note": "A Treekin unit may become Kurnoth Hunters for +3 points per model. You cannot have more units of Kurnoth Hunters than Treekin. Kurnoth Hunters carry a great weapon, a scythe (halberd), or a longbow. A unit equipped with bows may take Quiverlings for +3 points per model. Quiverlings grant Multiple Attacks (D3), with Initiative 4 and Strength 2. See page 27."
             }
           ]
         },
@@ -411,7 +411,7 @@ window.CAMPAIGN_ARMY_DATA = {
           "entries": [
             {
               "id": "treeman",
-              "note": "May take the Wildwood Onager upgrade for +25 points, but not together with Strangleroots."
+              "note": "May take the Wildwood Onager upgrade for +25 points, but not together with Strangleroots. If taken, it fires as a stone thrower with a range of 36 inches and the small template: Strength 10 beneath the central hole and Strength 5 elsewhere. It has Move or Fire, and the model loses D3 Wounds on a misfire. See page 26."
             }
           ]
         }
@@ -6002,7 +6002,8 @@ window.CAMPAIGN_ARMY_DATA = {
       ],
       "notes": [
         "Uses the Treekin Elder profile and cost as a character; its Scaly Skin improves to 3+ for free.",
-        "Choose at most one weapon: great weapon, scythe (halberd), or longbow. Quiverlings cost a further +6 points."
+        "Choose at most one weapon: great weapon, scythe (halberd), or longbow. Quiverlings cost a further +6 points.",
+        "If taken, Quiverlings grant Multiple Attacks (D3), with Initiative 4 and Strength 2."
       ],
       "source": "The Revolt of Mallobaude, p. 27",
       "sourceHref": "../rules.html#rules-page-27",
